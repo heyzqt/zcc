@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * Created by heyzqt on 2016/9/6.
  *
- * 登录界面  张晴傻狗
+ * 登录界面  张艳琴瓜娃子
  */
 public class LoginActivity extends AppCompatActivity {
 
