@@ -11,6 +11,8 @@ import com.zcc.activity.R;
 
 /**
  * Created by heyzqt on 2016/9/6.
+ *
+ * 用户中心Fragment
  */
 public class UserCenterActivity extends Fragment {
 
