@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">种草草</string>
-    <string name="ip_address"></string>
+    <string name="ip_address">http://192.168.253.1:82/zcc/index.php/</string>
+    <string name="ip_address1">http://172.27.35.1:82/zcc/index.php/</string>
 </resources>

@@ -10,7 +10,7 @@ public class Address {
     /**
      * 地址Id
      */
-    private int Id;
+    private int id;
 
     /**
      * 用户Id
@@ -23,11 +23,11 @@ public class Address {
     private String address;
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getUserId() {
@@ -49,7 +49,7 @@ public class Address {
     @Override
     public String toString() {
         return "Address{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", userId='" + userId + '\'' +
                 ", address='" + address + '\'' +
                 '}';

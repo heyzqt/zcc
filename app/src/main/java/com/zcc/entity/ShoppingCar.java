@@ -10,7 +10,7 @@ public class ShoppingCar {
     /**
      * 购物车Id
      */
-    private int Id;
+    private int id;
 
     /**
      * 商品Id
@@ -38,11 +38,11 @@ public class ShoppingCar {
     private String price;
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getBusinessId() {
@@ -88,7 +88,7 @@ public class ShoppingCar {
     @Override
     public String toString() {
         return "ShoppingCar{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", businessId='" + businessId + '\'' +
                 ", userId='" + userId + '\'' +
                 ", create_time='" + create_time + '\'' +

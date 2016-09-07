@@ -10,7 +10,7 @@ public class User {
     /**
      * 用户Id
      */
-    private int Id;
+    private int id;
 
     /**
      * 用户名
@@ -46,11 +46,11 @@ public class User {
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -88,7 +88,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", sex='" + sex + '\'' +

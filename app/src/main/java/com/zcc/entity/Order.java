@@ -10,7 +10,7 @@ public class Order {
     /**
      * 订单Id
      */
-    private int Id;
+    private int id;
 
     /**
      * 商品Id
@@ -43,11 +43,11 @@ public class Order {
     private String price;
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getBusinessId() {
@@ -101,7 +101,7 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", businessId='" + businessId + '\'' +
                 ", userId='" + userId + '\'' +
                 ", createTime='" + createTime + '\'' +

@@ -10,7 +10,7 @@ public class Business {
     /**
      * 商品Id
      */
-    private int Id;
+    private int id;
 
     /**
      * 商品名
@@ -41,11 +41,11 @@ public class Business {
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -75,7 +75,7 @@ public class Business {
     @Override
     public String toString() {
         return "Business{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", price='" + price + '\'' +
