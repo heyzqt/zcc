@@ -87,7 +87,7 @@ public class ShoppingCar {
 
     @Override
     public String toString() {
-        return "ShoppingCar{" +
+        return "ShoppingCarFragment{" +
                 "Id=" + Id +
                 ", businessId='" + businessId + '\'' +
                 ", userId='" + userId + '\'' +

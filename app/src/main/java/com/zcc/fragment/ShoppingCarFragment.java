@@ -12,14 +12,14 @@ import com.zcc.activity.R;
 /**
  * Created by heyzqt on 2016/9/6.
  *
- * 用户中心Fragment
+ * 购物车Fragemnt
  */
-public class UserCenterActivity extends Fragment {
+public class ShoppingCarFragment extends Fragment{
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View contentView = inflater.inflate(R.layout.fragment_usercenter, null);
+        View contentView = inflater.inflate(R.layout.fragment_shoppingcar, null);
         return contentView;
     }
 }
