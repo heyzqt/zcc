@@ -55,10 +55,10 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
         //设置无标题
         //GuideActivity.this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-//去掉Activity上面的状态栏
+        //去掉Activity上面的状态栏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_guide);
-        ip = getResources().getString(R.string.ip_address1);
+        ip = getResources().getString(R.string.ip_address);
         init();
         initbusiness();
         initUser();
@@ -102,12 +102,12 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                     }
                     DBHelper.getInstance(getApplicationContext()).saveAll(mListBusiness);
                     Toast.makeText(getApplication(), "business添加成功!", Toast.LENGTH_SHORT).show();
-                    Log.e("database-----","business添加成功!");
+                    Log.e("database-----", "business添加成功!");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (DbException e) {
                     Toast.makeText(getApplication(), "business添加失败!", Toast.LENGTH_SHORT).show();
-                    Log.e("database-----","business添加成功0000");
+                    Log.e("database-----", "business添加成功0000");
                     e.printStackTrace();
                 }
                 super.onSuccess(s);
@@ -151,12 +151,12 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                     }
                     DBHelper.getInstance(getApplicationContext()).saveAll(mListUser);
                     Toast.makeText(getApplication(), "user添加成功!", Toast.LENGTH_SHORT).show();
-                    Log.e("database-----","user添加成功!");
+                    Log.e("database-----", "user添加成功!");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (DbException e) {
                     Toast.makeText(getApplication(), "user添加失败!", Toast.LENGTH_SHORT).show();
-                    Log.e("database-----","user添加成功!0000");
+                    Log.e("database-----", "user添加成功!0000");
                     e.printStackTrace();
                 }
                 super.onSuccess(s);
@@ -231,7 +231,7 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                         JSONObject lo = arry.getJSONObject(i);
                         String id = lo.getString("Id");
                         String userId = lo.getString("userId");
-                        String adds=lo.getString("address");
+                        String adds = lo.getString("address");
                         address.setId(Integer.parseInt(id));
                         address.setUserId(userId);
                         address.setAddress(adds);
@@ -256,11 +256,12 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
             }
         });
     }
+
     private void initOrder() {
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         String url = ip + "Guide/LoadOrder";
-        mListOrder= new ArrayList<Order>();
+        mListOrder = new ArrayList<Order>();
         client.get(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(String s) {
@@ -269,18 +270,18 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                     root = new JSONObject(s.toString());
                     JSONArray arry = root.getJSONArray("datas");
                     for (int i = 0; i < arry.length(); i++) {
-                    //    {"datas":[{"Id":"1","businessId":"1","userId":"1","create_time":"2016-09-06",
-                      //          "adddress":"\u56db\u5ddd\u7701\u6210\u90fd\u5e02\u90eb\u53bf\u7ea2\u5149\u9547\u897f\u534e\u5927\u5b66",
-                       //         "count":"1","price":"199.00"}]}
+                        //    {"datas":[{"Id":"1","businessId":"1","userId":"1","create_time":"2016-09-06",
+                        //          "adddress":"\u56db\u5ddd\u7701\u6210\u90fd\u5e02\u90eb\u53bf\u7ea2\u5149\u9547\u897f\u534e\u5927\u5b66",
+                        //         "count":"1","price":"199.00"}]}
                         Order order = new Order();
                         JSONObject lo = arry.getJSONObject(i);
                         String id = lo.getString("Id");
                         String userId = lo.getString("userId");
-                        String create_time=lo.getString("create_time");
-                        String adddress=lo.getString("adddress");
-                        String businessId=lo.getString("businessId");
-                        String price=lo.getString("price");
-                        String count=lo.getString("count");
+                        String create_time = lo.getString("create_time");
+                        String adddress = lo.getString("adddress");
+                        String businessId = lo.getString("businessId");
+                        String price = lo.getString("price");
+                        String count = lo.getString("count");
                         order.setId(Integer.parseInt(id));
                         order.setAddress(adddress);
                         order.setUserId(userId);
@@ -314,7 +315,7 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         String url = ip + "Guide/LoadOrder";
-        mListShoppingCar= new ArrayList<ShoppingCar>();
+        mListShoppingCar = new ArrayList<ShoppingCar>();
         client.get(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(String s) {
@@ -329,11 +330,11 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                         JSONObject lo = arry.getJSONObject(i);
                         String id = lo.getString("Id");
                         String userId = lo.getString("userId");
-                        String create_time=lo.getString("create_time");
-                        String adddress=lo.getString("adddress");
-                        String businessId=lo.getString("businessId");
-                        String price=lo.getString("price");
-                        String count=lo.getString("count");
+                        String create_time = lo.getString("create_time");
+                        String adddress = lo.getString("adddress");
+                        String businessId = lo.getString("businessId");
+                        String price = lo.getString("price");
+                        String count = lo.getString("count");
                         shoppingCar.setId(Integer.parseInt(id));
                         shoppingCar.setUserId(userId);
                         shoppingCar.setBusinessId(businessId);
