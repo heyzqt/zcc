@@ -2,4 +2,11 @@
     <string name="app_name">种草草</string>
     <string name="ip_address">http://192.168.253.1:82/zcc/index.php/</string>
     <string name="ip_address1">http://172.27.35.1:82/zcc/index.php/</string>
+
+    <string name="Main_rl1">服装城</string>
+    <string name="Main_rl2">美妆护肤</string>
+    <string name="Main_rl3">换季特卖</string>
+    <string name="Main_rl4">水果超市</string>
+    <string name="Main_rl5">数码商城</string>
+    <string name="Main_rl6">秋装新品</string>
 </resources>

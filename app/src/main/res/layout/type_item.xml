@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="125dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/type_item_img"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/business_mz_kh" />
+
+        <TextView
+            android:id="@+id/type_item_name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/type_item_img"
+            android:text="环境创设空间换房间看是否暗杀教室环境创设空间换环境创设空间换"
+            android:textColor="@color/color_black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/type_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/type_item_name"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/type_item_img"
+            android:text="$199.00"
+            android:textColor="@color/color_main"
+            android:textSize="16dp" />
+
+        <View
+            android:id="@+id/type_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/color_stroke"></View>
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/type_item_rl_car"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_toRightOf="@+id/type_line">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/type_image_car"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--android:src="@mipmap/guide_cart_nm" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/type_item_car"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/type_image_car"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:text="立即购买"-->
+                <!--android:textColor="@color/color_font" />-->
+        <!--</RelativeLayout>-->
+
+    </RelativeLayout>
+</LinearLayout>

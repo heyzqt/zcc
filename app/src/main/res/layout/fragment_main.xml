@@ -2,13 +2,192 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_white"
     android:orientation="vertical">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="首页"
-        android:textSize="25dp"/>
+        android:layout_height="48dp"
+        android:background="@color/color_main">
 
+        <ImageView
+            android:id="@+id/Main_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/search" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="首页"
+            android:textColor="@color/color_white"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/banner" />
+
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <RelativeLayout
+                    android:id="@+id/rl_01"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1">
+
+                    <com.zcc.widget.RoundImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/aliuser_place_holder" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:textSize="12dp"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/Main_rl1" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_02"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1">
+
+                    <com.zcc.widget.RoundImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/aliuser_place_holder" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:textSize="12dp"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/Main_rl2" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_03"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1">
+
+                    <com.zcc.widget.RoundImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/aliuser_place_holder" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:textSize="12dp"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/Main_rl3" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_04"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1">
+
+                    <com.zcc.widget.RoundImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/aliuser_place_holder" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:textSize="12dp"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/Main_rl4" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <RelativeLayout
+                    android:id="@+id/rl_05"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1">
+
+                    <com.zcc.widget.RoundImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/aliuser_place_holder" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:textSize="12dp"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/Main_rl5" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_06"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1">
+
+                    <com.zcc.widget.RoundImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/aliuser_place_holder" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="12dp"
+                        android:text="@string/Main_rl6" />
+                </RelativeLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/color_stroke"
+                android:layout_marginBottom="5dp"
+                android:layout_height="0.6dp"></View>
+           <com.zcc.widget.NoScrollListView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:divider="@null"
+               android:id="@+id/main_list">
+           </com.zcc.widget.NoScrollListView>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
