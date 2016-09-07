@@ -8,11 +8,11 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v4.view.ViewPager>
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
@@ -24,8 +24,8 @@
 
             <ImageView
                 android:id="@+id/img_main"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/ic_launcher" />
 
@@ -33,9 +33,9 @@
                 android:id="@+id/tv_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="首页"
                 android:layout_below="@+id/img_main"
+                android:layout_centerHorizontal="true"
+                android:text="首页"
                 android:textSize="14dp" />
         </RelativeLayout>
 
@@ -47,18 +47,19 @@
 
             <ImageView
                 android:id="@+id/img_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/tv_type"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/img_type"
-                android:layout_weight="1"
-                android:text="分类" />
+                android:layout_centerHorizontal="true"
+                android:text="分类"
+                android:textSize="14dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -69,18 +70,19 @@
 
             <ImageView
                 android:id="@+id/img_shoppingcar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/tv_shoppingcar"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/img_shoppingcar"
-                android:layout_weight="1"
-                android:text="购物车" />
+                android:layout_centerHorizontal="true"
+                android:text="购物车"
+                android:textSize="14dp" />
 
         </RelativeLayout>
 
@@ -92,18 +94,19 @@
 
             <ImageView
                 android:id="@+id/img_usercenter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/tv_usercenter"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/img_usercenter"
-                android:layout_weight="1"
-                android:text="个人中心" />
+                android:layout_centerHorizontal="true"
+                android:text="个人中心"
+                android:textSize="14dp" />
 
         </RelativeLayout>
     </LinearLayout>

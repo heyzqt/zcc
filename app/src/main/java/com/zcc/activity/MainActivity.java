@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.zcc.adapter.ViewPagerAdapter;
@@ -19,7 +20,7 @@ import java.util.List;
 /**
  * 主界面
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewPager mViewPager;
 
@@ -61,8 +62,17 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
-    private void init(){
+    private void init() {
         mViewPager = (ViewPager) findViewById(R.id.vp_main);
+        mMainRy = (RelativeLayout) findViewById(R.id.rl_main);
+        mTypeRy = (RelativeLayout) findViewById(R.id.rl_type);
+        mShoppingRy = (RelativeLayout) findViewById(R.id.rl_shoppingcar);
+        mUserCenterRy = (RelativeLayout) findViewById(R.id.rl_usercenter);
+
+        mMainRy.setOnClickListener(this);
+        mTypeRy.setOnClickListener(this);
+        mShoppingRy.setOnClickListener(this);
+        mUserCenterRy.setOnClickListener(this);
 
         //初始化viewpager
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -70,7 +80,29 @@ public class MainActivity extends AppCompatActivity {
         mfragmentLists.add(new TypeFragment());
         mfragmentLists.add(new ShoppingCarFragment());
         mfragmentLists.add(new UserCenterFragment());
-        mViewPagerAdapter = new ViewPagerAdapter(fragmentManager,mfragmentLists);
+        mViewPagerAdapter = new ViewPagerAdapter(fragmentManager, mfragmentLists);
         mViewPager.setAdapter(mViewPagerAdapter);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            //首页
+            case R.id.rl_main:
+                mViewPager.setCurrentItem(0);
+                break;
+            //分类
+            case R.id.rl_type:
+                mViewPager.setCurrentItem(1);
+                break;
+            //购物车
+            case R.id.rl_shoppingcar:
+                mViewPager.setCurrentItem(2);
+                break;
+            //个人中心
+            case R.id.rl_usercenter:
+                mViewPager.setCurrentItem(3);
+                break;
+        }
     }
 }
