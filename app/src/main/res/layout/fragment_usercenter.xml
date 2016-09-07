@@ -6,8 +6,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="170dp"
         android:background="@color/color_main">
+
+
 
         <TextView
             android:layout_width="wrap_content"
