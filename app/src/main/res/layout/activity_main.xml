@@ -5,9 +5,115 @@
     android:layout_height="match_parent"
     tools:context="com.zcc.activity.MainActivity">
 
-    <ListView
-        android:id="@+id/listview"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_main"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/guide_home_nm"/>
+
+            <TextView
+                android:id="@+id/tv_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_main"
+                android:layout_centerHorizontal="true"
+                android:text="首页"
+                android:textSize="14dp"
+                android:textColor="@color/color_font"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_type"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/guide_discover_nm"/>
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_type"
+                android:layout_centerHorizontal="true"
+                android:text="分类"
+                android:textSize="14dp"
+                android:textColor="@color/color_font"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_shoppingcar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_shoppingcar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/guide_cart_nm" />
+
+            <TextView
+                android:id="@+id/tv_shoppingcar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_shoppingcar"
+                android:layout_centerHorizontal="true"
+                android:text="购物车"
+                android:textSize="14dp"
+                android:textColor="@color/color_font"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_usercenter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_usercenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/guide_account_nm" />
+
+            <TextView
+                android:id="@+id/tv_usercenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_usercenter"
+                android:layout_centerHorizontal="true"
+                android:text="个人中心"
+                android:textSize="14dp"
+                android:textColor="@color/color_font"/>
+
+        </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>
