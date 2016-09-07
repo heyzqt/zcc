@@ -10,11 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="@color/color_stroke"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="54dp"/>
+
     <LinearLayout
+        android:id="@+id/ly_bottom"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="4dp"
         android:orientation="horizontal">
 
         <RelativeLayout
