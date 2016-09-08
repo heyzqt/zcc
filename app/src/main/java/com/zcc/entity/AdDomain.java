@@ -1,32 +1,32 @@
 package com.zcc.entity;
 
 public class AdDomain {
-	private String id; 
-	private String topic;
-	private int imgUrl;
+    private String id;
+    private String topic;
+    private int imgUrl;
 
 
     public String getId() {
-		return id;
-	}
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public int getImgUrl() {
-		return imgUrl;
-	}
+    public int getImgUrl() {
+        return imgUrl;
+    }
 
-	public void setImgUrl(int imgUrl) {
-		this.imgUrl = imgUrl;
-	}
+    public void setImgUrl(int imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
-	public String getTopic() {
-		return topic;
-	}
+    public String getTopic() {
+        return topic;
+    }
 
-	public void setTopic(String topic) {
-		this.topic = topic;
-	}
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
 }

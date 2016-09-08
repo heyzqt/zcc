@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by heyzqt on 2016/9/6.
- *
+ * <p/>
  * 注册界面
  */
-public class RegisterActivity extends AppCompatActivity{
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

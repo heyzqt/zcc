@@ -9,6 +9,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="分类"
-        android:textSize="25dp"/>
+        android:textSize="25dp" />
 
 </LinearLayout>

@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp" >
+        android:layout_height="120dp">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/vp"
@@ -16,9 +16,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:background="@mipmap/shadow_article" >
+            android:background="@mipmap/shadow_article">
 
-        
+
             <RelativeLayout
                 android:id="@+id/author_layout"
                 android:layout_width="match_parent"
@@ -26,8 +26,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
-                android:paddingBottom="10dp" >
-            </RelativeLayout>
+                android:paddingBottom="10dp"></RelativeLayout>
 
             <TextView
                 android:id="@+id/binner_tv_topic"
@@ -49,8 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dip"
             android:layout_marginRight="15dp"
-            android:layout_gravity="bottom"
-          >
+            android:layout_gravity="bottom">
 
             <View
                 android:id="@+id/v_dot0"
@@ -63,23 +61,23 @@
                 android:id="@+id/v_dot1"
                 style="@style/dot_style"
                 android:layout_toLeftOf="@+id/v_dot2"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
 
             <View
                 android:layout_alignParentRight="true"
                 android:id="@+id/v_dot2"
                 style="@style/dot_style"
                 android:layout_marginBottom="5dp"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
 
-      
+
         </RelativeLayout>
 
     </FrameLayout>
     <!--<View-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="0.8dp"-->
-        <!--android:layout_marginLeft="10dp"-->
-        <!--android:layout_marginRight="10dp"-->
-        <!--android:background="@color/color_font"></View>-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="0.8dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_marginRight="10dp"-->
+    <!--android:background="@color/color_font"></View>-->
 </LinearLayout>

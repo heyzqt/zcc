@@ -10,7 +10,7 @@
         android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/view_line"/>
+        android:layout_above="@+id/view_line" />
 
     <View
         android:id="@+id/view_line"
@@ -18,7 +18,7 @@
         android:layout_height="0.6dp"
         android:background="@color/color_stroke"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="50dp" />
 
     <LinearLayout
         android:id="@+id/ly_bottom"
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:src="@mipmap/guide_home_nm"/>
+                android:src="@mipmap/guide_home_nm" />
 
             <TextView
                 android:id="@+id/tv_main"
@@ -50,7 +50,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="首页"
                 android:textSize="12dp"
-                android:textColor="@color/color_font"/>
+                android:textColor="@color/color_font" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:src="@mipmap/guide_discover_nm"/>
+                android:src="@mipmap/guide_discover_nm" />
 
             <TextView
                 android:id="@+id/tv_type"
@@ -74,7 +74,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="分类"
                 android:textSize="12dp"
-                android:textColor="@color/color_font"/>
+                android:textColor="@color/color_font" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -98,7 +98,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="购物车"
                 android:textSize="12dp"
-                android:textColor="@color/color_font"/>
+                android:textColor="@color/color_font" />
 
         </RelativeLayout>
 
@@ -124,7 +124,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="个人中心"
                 android:textSize="12dp"
-                android:textColor="@color/color_font"/>
+                android:textColor="@color/color_font" />
 
         </RelativeLayout>
     </LinearLayout>

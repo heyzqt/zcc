@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by heyzqt on 2016/9/6.
- *
+ * <p/>
  * 地址详情界面
  */
-public class AddressInfoActivity extends AppCompatActivity{
+public class AddressInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by heyzqt on 2016/9/6.
- *
+ * <p/>
  * 商品详情页面
  */
 public class BusinessInfoActivity extends AppCompatActivity {

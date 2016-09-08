@@ -45,7 +45,7 @@ public abstract class BusinessBaseAdapter<T> extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = LayoutInflater.from(mContext).inflate(mLayoutId, null);
-        initView(position,convertView,parent);
+        initView(position, convertView, parent);
         return view;
     }
 

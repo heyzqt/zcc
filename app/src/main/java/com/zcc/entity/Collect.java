@@ -2,7 +2,7 @@ package com.zcc.entity;
 
 /**
  * Created by heyzqt on 2016/9/6.
- *
+ * <p/>
  * 我的收藏对象
  */
 public class Collect {
