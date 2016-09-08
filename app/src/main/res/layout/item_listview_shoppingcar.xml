@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:background="@color/color_white"
     android:orientation="vertical">
 
     <ImageView
@@ -40,6 +42,7 @@
         android:layout_marginTop="50dp"
         android:layout_toRightOf="@+id/img_business"
         android:text="商品价格"
+        android:textColor="@color/color_main"
         android:textSize="14dp" />
 
     <TextView

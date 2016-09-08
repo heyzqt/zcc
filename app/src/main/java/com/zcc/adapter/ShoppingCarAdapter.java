@@ -8,8 +8,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lidroid.xutils.db.sqlite.Selector;
+import com.lidroid.xutils.exception.DbException;
 import com.zcc.activity.R;
+import com.zcc.dbutils.DBHelper;
+import com.zcc.entity.Business;
 import com.zcc.entity.ShoppingCar;
+import com.zcc.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +60,7 @@ public class ShoppingCarAdapter extends BaseAdapter {
             vh.mImgCircle = (ImageView) convertView.findViewById(R.id.img_circle);
             vh.mImgBusiness = (ImageView) convertView.findViewById(R.id.img_business);
             vh.mTvBusinessName = (TextView) convertView.findViewById(R.id.tv_businessname);
-            vh.mTvBusinessPrice = (TextView) convertView.findViewById(R.id.tv_price);
+            vh.mTvBusinessPrice = (TextView) convertView.findViewById(R.id.tv_businessprice);
             vh.mTvBusinessNum = (TextView) convertView.findViewById(R.id.tv_businessnum);
             convertView.setTag(vh);
         } else {
@@ -63,9 +68,20 @@ public class ShoppingCarAdapter extends BaseAdapter {
         }
 
         //先找到对应商品对象
-        //Utils.getInstance(mContext).getImgResource(mDatas.get(position));
-//        ShoppingCar shoppingCar = mDatas.get(position);
-//        String businessId = shoppingCar.getBusinessId();
+        ShoppingCar shoppingCar = mDatas.get(position);
+        Business business = new Business();
+        String businessId = shoppingCar.getBusinessId();
+        try {
+            business = DBHelper.getInstance(mContext).findFirst(Selector.from(Business.class).where("id", "=", businessId));
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+
+        //设置商品数据
+        vh.mImgBusiness.setImageResource(Utils.getInstance(mContext).getImgResource(business.getImgUrl()));
+        vh.mTvBusinessName.setText(business.getName());
+        vh.mTvBusinessPrice.setText("￥" + business.getPrice());
+        vh.mTvBusinessNum.setText("x" + shoppingCar.getCount());
         return convertView;
     }
 

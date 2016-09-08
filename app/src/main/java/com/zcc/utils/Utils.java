@@ -24,6 +24,12 @@ public class Utils {
         return mUtils;
     }
 
+    /**
+     * 根据图片url找到图片
+     *
+     * @param imageName
+     * @return
+     */
     public static int getImgResource(String imageName) {
         int resId = mContext.getResources().getIdentifier(imageName, "mipmap", mContext.getPackageName());
         //如果没有在"mipmap"下找到imageName,将会返回0
