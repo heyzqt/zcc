@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -185,8 +187,9 @@
            <com.zcc.widget.NoScrollListView
                android:layout_width="match_parent"
                android:layout_height="match_parent"
-               android:focusable="false"
                android:divider="@null"
+               android:focusable="false"
+               android:focusableInTouchMode="false"
                android:id="@+id/main_list">
            </com.zcc.widget.NoScrollListView>
         </LinearLayout>

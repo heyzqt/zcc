@@ -6,17 +6,16 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:background="@mipmap/shadow_article"
-        android:layout_height="100dp" >
+        android:layout_height="120dp" >
 
         <android.support.v4.view.ViewPager
             android:id="@+id/vp"
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="120dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="120dp"
             android:background="@mipmap/shadow_article" >
 
         
