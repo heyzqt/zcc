@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zcc.activity.R;
 import com.zcc.entity.Business;
+import com.zcc.utils.Utils;
 
 import java.util.List;
 
@@ -22,11 +22,11 @@ public class TypeAdapter extends BaseAdapter {
     Context mContext;
     LayoutInflater inflater;
 
-    public TypeAdapter (Context context, List<Business> businessList) {
+    public TypeAdapter(Context context, List<Business> businessList) {
         this.businessList = businessList;
         mContext = context;
     }
-// return businessList.size();
+
     @Override
     public int getCount() {
         return 10;
@@ -53,16 +53,13 @@ public class TypeAdapter extends BaseAdapter {
             holder.title = (TextView) convertView.findViewById(R.id.type_item_name);
             holder.price = (TextView) convertView.findViewById(R.id.type_item_price);
             holder.img = (ImageView) convertView.findViewById(R.id.type_item_img);
-//            holder.rl_car= (RelativeLayout) convertView.findViewById(R.id.type_item_rl_car);
-//            holder.car= (ImageView) convertView.findViewById(R.id.type_image_car);
-//            holder.tv_car= (TextView) convertView.findViewById(R.id.type_item_car);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.title.setText(businessList.get(position).getName());
-        holder.price.setText("$ "+businessList.get(position).getPrice());
-        holder.img.setImageResource(getResource(businessList.get(position).getImgUrl()));
+        holder.price.setText("$ " + businessList.get(position).getPrice());
+        holder.img.setImageResource(Utils.getInstance(mContext).getImgResource(businessList.get(position).getImgUrl()));
         return convertView;
     }
 
@@ -70,14 +67,5 @@ public class TypeAdapter extends BaseAdapter {
         TextView title;
         TextView price;
         ImageView img;
-//        ImageView car;
-//        TextView tv_car;
-//        RelativeLayout rl_car;
-    }
-
-    public int getResource(String imageName) {
-        int resId = mContext.getResources().getIdentifier(imageName, "mipmap", mContext.getPackageName());
-        //如果没有在"mipmap"下找到imageName,将会返回0
-        return resId;
     }
 }

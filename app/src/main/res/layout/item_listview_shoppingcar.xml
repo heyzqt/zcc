@@ -9,37 +9,38 @@
         android:id="@+id/img_circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
-        android:src="@mipmap/check_circle"/>
+        android:src="@mipmap/check_circle" />
+
     <ImageView
         android:id="@+id/img_business"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginLeft="60dp"
         android:scaleType="centerCrop"
-        android:layout_marginLeft="50dp"
-        android:src="@mipmap/business_mz_fs"/>
+        android:src="@mipmap/business_mz_fs" />
 
 
     <TextView
         android:id="@+id/tv_businessname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="商品名"
-        android:layout_toRightOf="@+id/img_business"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:textSize="14dp"/>
+        android:layout_toRightOf="@+id/img_business"
+        android:text="商品名"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/tv_businessprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="商品价格"
-        android:layout_toRightOf="@+id/img_business"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="50dp"
-        android:textSize="14dp"/>
+        android:layout_toRightOf="@+id/img_business"
+        android:text="商品价格"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/tv_businessnum"
@@ -48,5 +49,5 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
         android:layout_marginTop="50dp"
-        android:text="x1"/>
+        android:text="x1" />
 </RelativeLayout>
