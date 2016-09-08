@@ -11,10 +11,10 @@ import com.zcc.activity.R;
 
 /**
  * Created by heyzqt on 2016/9/6.
- *
+ * <p/>
  * 分类Fragment
  */
-public class TypeFragment extends Fragment{
+public class TypeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

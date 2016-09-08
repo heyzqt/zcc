@@ -11,7 +11,7 @@ import android.view.WindowManager;
 
 /**
  * Created by zyq on 2016/9/6.
- *
+ * <p/>
  * 启动界面
  */
 public class SplashActivity extends Activity {

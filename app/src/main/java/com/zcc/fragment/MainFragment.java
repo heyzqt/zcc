@@ -39,7 +39,7 @@ import java.util.concurrent.TimeUnit;
  * <p/>
  * MainFragment
  */
-public class MainFragment extends Fragment implements View.OnClickListener{
+public class MainFragment extends Fragment implements View.OnClickListener {
 
     private ImageView mIvSearch;
     private static final String KEY_CONTENT = "要闻";
@@ -62,7 +62,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     private List<AdDomain> adList;
     BinnerAdapter binnerAdapter;
     ArrayList<HashMap<String, String>> list = null;
-    private RelativeLayout rl_1,rl_2,rl_3,rl_4,rl_5,rl_6;
+    private RelativeLayout rl_1, rl_2, rl_3, rl_4, rl_5, rl_6;
 
     private Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -114,22 +114,22 @@ public class MainFragment extends Fragment implements View.OnClickListener{
             dotList.add(dots.get(i));
         }
 
-        rl_1= (RelativeLayout) v.findViewById(R.id.rl_01);
+        rl_1 = (RelativeLayout) v.findViewById(R.id.rl_01);
         rl_1.setOnClickListener(this);
-        rl_2= (RelativeLayout) v.findViewById(R.id.rl_02);
+        rl_2 = (RelativeLayout) v.findViewById(R.id.rl_02);
         rl_2.setOnClickListener(this);
-        rl_3= (RelativeLayout) v.findViewById(R.id.rl_03);
+        rl_3 = (RelativeLayout) v.findViewById(R.id.rl_03);
         rl_3.setOnClickListener(this);
-        rl_4= (RelativeLayout) v.findViewById(R.id.rl_04);
+        rl_4 = (RelativeLayout) v.findViewById(R.id.rl_04);
         rl_4.setOnClickListener(this);
-        rl_5= (RelativeLayout) v.findViewById(R.id.rl_05);
+        rl_5 = (RelativeLayout) v.findViewById(R.id.rl_05);
         rl_5.setOnClickListener(this);
-        rl_6= (RelativeLayout) v.findViewById(R.id.rl_06);
+        rl_6 = (RelativeLayout) v.findViewById(R.id.rl_06);
         rl_6.setOnClickListener(this);
-        mIvSearch= (ImageView) v.findViewById(R.id.Main_search);
+        mIvSearch = (ImageView) v.findViewById(R.id.Main_search);
         mIvSearch.setOnClickListener(this);
-        listView= (NoScrollListView) v.findViewById(R.id.main_list);
-        typeAdapter=new TypeAdapter(getActivity(),mListBusiness);
+        listView = (NoScrollListView) v.findViewById(R.id.main_list);
+        typeAdapter = new TypeAdapter(getActivity(), mListBusiness);
         listView.setAdapter(typeAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -151,25 +151,25 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.rl_01:
             case R.id.rl_04://进入分类的Activity 护肤
-                Intent intent=new Intent();
-                intent.putExtra("type","美妆护肤");
+                Intent intent = new Intent();
+                intent.putExtra("type", "美妆护肤");
                 intent.setClass(getActivity(), BusinessTypeActivity.class);
                 startActivity(intent);
                 break;
             case R.id.rl_02:
             case R.id.rl_05://进入分类的Activity  衣服
-                Intent intent1=new Intent();
-                intent1.putExtra("type","秋装新品");
+                Intent intent1 = new Intent();
+                intent1.putExtra("type", "秋装新品");
                 intent1.setClass(getActivity(), BusinessTypeActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.rl_03:
             case R.id.rl_06://进入分类的Activity  数码
-                Intent intent2=new Intent();
-                intent2.putExtra("type","数码商城");
+                Intent intent2 = new Intent();
+                intent2.putExtra("type", "数码商城");
                 intent2.setClass(getActivity(), BusinessTypeActivity.class);
                 startActivity(intent2);
                 break;
@@ -219,19 +219,20 @@ public class MainFragment extends Fragment implements View.OnClickListener{
      *
      * @return
      */
-    public  List<AdDomain> getBannerAd() {
+    public List<AdDomain> getBannerAd() {
         List<AdDomain> adList = new ArrayList<AdDomain>();
         for (int i = 0; i < 3; i++) {
             AdDomain adDomain = new AdDomain();
             adDomain.setTopic(mListBusiness.get(i).getName());
             adDomain.setImgUrl(getResource(mListBusiness.get(i).getImgUrl()));
-            adDomain.setId(mListBusiness.get(i).getId()+"");
+            adDomain.setId(mListBusiness.get(i).getId() + "");
             adList.add(adDomain);
         }
         return adList;
     }
-    public int  getResource(String imageName){
-        int resId =getResources().getIdentifier(imageName, "mipmap",getActivity().getPackageName());
+
+    public int getResource(String imageName) {
+        int resId = getResources().getIdentifier(imageName, "mipmap", getActivity().getPackageName());
         //如果没有在"mipmap"下找到imageName,将会返回0
         return resId;
     }

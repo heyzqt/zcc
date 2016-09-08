@@ -2,7 +2,7 @@ package com.zcc.entity;
 
 /**
  * Created by heyzqt on 2016/9/6.
- *
+ * <p/>
  * 商品详情界面
  */
 public class Business {

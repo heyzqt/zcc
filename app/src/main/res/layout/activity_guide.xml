@@ -2,26 +2,24 @@
     android:id="@+id/mainRLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#000000" >
+    android:background="#000000">
 
     <!-- 自定义滑动控件 -->
-    <com.zcc.activity.ScrollLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.zcc.activity.ScrollLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ScrollLayout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:visibility="visible" >
+        android:visibility="visible">
         <!-- 每一页的布局均以一个RelativeLayout来控制，后面类似，这里一共3个 -->
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@mipmap/guide1" >
-        </RelativeLayout>
+            android:background="@mipmap/guide1"></RelativeLayout>
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@mipmap/guide2" >
+            android:background="@mipmap/guide2">
 
         </RelativeLayout>
 
@@ -59,7 +57,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
         android:orientation="horizontal"
-        android:visibility="visible" >
+        android:visibility="visible">
 
         <ImageView
             android:layout_width="wrap_content"

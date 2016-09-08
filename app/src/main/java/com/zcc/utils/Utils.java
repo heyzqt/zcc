@@ -4,7 +4,7 @@ import android.content.Context;
 
 /**
  * Created by 张艳琴 on 2016/9/7.
- *
+ * <p/>
  * 程序相关操作类
  */
 public class Utils {
@@ -24,6 +24,12 @@ public class Utils {
         return mUtils;
     }
 
+    /**
+     * 根据图片url找到图片
+     *
+     * @param imageName
+     * @return
+     */
     public static int getImgResource(String imageName) {
         int resId = mContext.getResources().getIdentifier(imageName, "mipmap", mContext.getPackageName());
         //如果没有在"mipmap"下找到imageName,将会返回0

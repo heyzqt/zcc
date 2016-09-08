@@ -14,20 +14,20 @@ import com.zcc.entity.User;
 
 /**
  * Created by heyzqt on 2016/9/6.
- *
+ * <p/>
  * 数据库操作类
  */
 public class DBHelper {
     private static DbUtils db;
 
-    public static DbUtils getInstance(Context context){
-        if(db == null){
+    public static DbUtils getInstance(Context context) {
+        if (db == null) {
             synchronized (DBHelper.class) {
-                if(db == null){
+                if (db == null) {
                     DbUtils.DaoConfig config = new DbUtils.DaoConfig(context);
                     config.setDbName("zcc"); //数据库名
                     config.setDbVersion(1);  //版本
-                            db = DbUtils.create(config);
+                    db = DbUtils.create(config);
                     try {//创建表
                         db.createTableIfNotExist(User.class);
                         db.createTableIfNotExist(Address.class);

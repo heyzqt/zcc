@@ -1,17 +1,22 @@
 package com.zcc.fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.zcc.ZccApplication;
 import com.zcc.activity.AddressManageActivity;
 import com.zcc.activity.CollectManageActivity;
+import com.zcc.activity.LoginActivity;
 import com.zcc.activity.OrderManageActivity;
 import com.zcc.activity.R;
 import com.zcc.activity.UserInfoActivity;
@@ -54,6 +59,11 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
      */
     private RelativeLayout mUserInfoRy;
 
+    /**
+     * 请求码
+     */
+    private final int REQUEST_CODE = 1001;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,10 +73,12 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
     }
 
     private void initView(View convertView) {
+        mUserHeadView = (RoundImageView) convertView.findViewById(R.id.img_user_head);
         mAddressRy = (RelativeLayout) convertView.findViewById(R.id.ry_address);
         mOrderRy = (RelativeLayout) convertView.findViewById(R.id.ry_order);
         mCollectRy = (RelativeLayout) convertView.findViewById(R.id.ry_collect);
         mUserInfoRy = (RelativeLayout) convertView.findViewById(R.id.ry_userinfo);
+        mUserHeadView.setOnClickListener(this);
         mAddressRy.setOnClickListener(this);
         mOrderRy.setOnClickListener(this);
         mCollectRy.setOnClickListener(this);
@@ -76,6 +88,30 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            //用户头像
+            case R.id.img_user_head:
+                if (ZccApplication.mUserId != -1) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                    dialog.setTitle("退出登录");
+                    dialog.setMessage("请确认是否要退出登录!");
+                    dialog.setCancelable(true);
+                    dialog.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(getActivity(), "确认", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
+                } else {
+                    startActivityForResult(new Intent(getActivity(), LoginActivity.class), REQUEST_CODE);
+                }
+                break;
             //我的地址
             case R.id.ry_address:
                 startActivity(new Intent(getActivity(), AddressManageActivity.class));

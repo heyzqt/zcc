@@ -48,6 +48,7 @@ public class ShoppingCarFragment extends Fragment {
         //初始化数据
         try {
             mShoppingLists = DBHelper.getInstance(getActivity()).findAll(ShoppingCar.class);
+            mShoppingLists.add(mShoppingLists.get(0));
         } catch (DbException e) {
             e.printStackTrace();
         }

@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //启动app时，底部导航栏的图标显示
         clearBottomView();
         mMainImg.setImageResource(R.mipmap.guide_home_on);
-        mMainTv.setTextColor(ContextCompat.getColor(this,R.color.color_main));
+        mMainTv.setTextColor(ContextCompat.getColor(this, R.color.color_main));
     }
 
     @Override
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mViewPager.setCurrentItem(0);
                 clearBottomView();
                 mMainImg.setImageResource(R.mipmap.guide_home_on);
-                mMainTv.setTextColor(ContextCompat.getColor(this,R.color.color_main));
+                mMainTv.setTextColor(ContextCompat.getColor(this, R.color.color_main));
                 break;
             //分类
             case R.id.rl_type:

@@ -2,7 +2,7 @@ package com.zcc.entity;
 
 /**
  * Created by heyzqt on 2016/9/6.
- *
+ * <p/>
  * 地址对象
  */
 public class Address {

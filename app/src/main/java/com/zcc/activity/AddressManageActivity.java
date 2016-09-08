@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by heyzqt on 2016/9/6.
- *
+ * <p/>
  * 管理我的地址界面
  */
-public class AddressManageActivity extends AppCompatActivity{
+public class AddressManageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

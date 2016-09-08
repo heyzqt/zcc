@@ -51,29 +51,29 @@
             android:background="@color/color_stroke"></View>
 
         <!--<RelativeLayout-->
-            <!--android:id="@+id/type_item_rl_car"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_toRightOf="@+id/type_line">-->
+        <!--android:id="@+id/type_item_rl_car"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_toRightOf="@+id/type_line">-->
 
-            <!--<ImageView-->
-                <!--android:id="@+id/type_image_car"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:layout_marginTop="15dp"-->
-                <!--android:src="@mipmap/guide_cart_nm" />-->
+        <!--<ImageView-->
+        <!--android:id="@+id/type_image_car"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:src="@mipmap/guide_cart_nm" />-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/type_item_car"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_below="@+id/type_image_car"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:layout_marginTop="5dp"-->
-                <!--android:text="立即购买"-->
-                <!--android:textColor="@color/color_font" />-->
+        <!--<TextView-->
+        <!--android:id="@+id/type_item_car"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/type_image_car"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:text="立即购买"-->
+        <!--android:textColor="@color/color_font" />-->
         <!--</RelativeLayout>-->
 
     </RelativeLayout>

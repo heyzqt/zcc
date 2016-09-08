@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by heyzqt on 2016/9/6.
- *
+ * <p/>
  * 创建订单界面
  */
-public class CreateOrderActivity extends AppCompatActivity{
+public class CreateOrderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
