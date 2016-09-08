@@ -61,7 +61,7 @@ public class TypeAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.title.setText(businessList.get(position).getName());
-        holder.price.setText("$ "+businessList.get(position).getPrice());
+        holder.price.setText("￥ "+businessList.get(position).getPrice());
         holder.img.setImageResource(getResource(businessList.get(position).getImgUrl()));
         return convertView;
     }

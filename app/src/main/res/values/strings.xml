@@ -9,4 +9,11 @@
     <string name="Main_rl4">水果超市</string>
     <string name="Main_rl5">数码商城</string>
     <string name="Main_rl6">秋装新品</string>
+    <string name="Main_page">首页</string>
+
+    <string name="businessInfo">商品详情</string>
+    <string name="businessCar">加入购物车</string>
+    <string name="businessBuy">立即购买</string>
+    <string name="businesscollect">添加收藏</string>
+
 </resources>
