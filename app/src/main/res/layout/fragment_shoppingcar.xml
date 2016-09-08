@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/ry_head"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
         android:background="@color/color_main">
 
         <TextView
@@ -58,8 +58,40 @@
             android:layout_centerVertical="true"
             android:textSize="14dp"/>
 
+        <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="合计:"
+        android:textColor="@color/color_21282d"
+        android:textSize="14dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/btn_account"/>
+
+        <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="￥0"
+        android:textColor="@color/color_main"
+        android:textSize="14dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/btn_account"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="不含运费"
+            android:textColor="@color/color_666666"
+            android:textSize="12dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="27dp"
+            android:layout_toLeftOf="@+id/btn_account"/>
+
         <Button
-            android:id="@+id/btn_"
+            android:id="@+id/btn_account"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
