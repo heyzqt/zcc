@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:background="@color/color_white"
+    android:minHeight="85dp">
+
+    <ImageView
+        android:id="@+id/concern_list2_icon"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/business_mz_sfs" />
+
+    <TextView
+        android:id="@+id/type_list2_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/concern_list2_icon"
+        android:text="参考信息"
+        android:textColor="@color/color_black"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/concern_list2_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/type_list2_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@+id/concern_list2_icon"
+        android:text="￥190.0"
+        android:textColor="@color/color_main"
+        android:textSize="13sp" />
+</RelativeLayout>
