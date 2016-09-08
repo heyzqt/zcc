@@ -45,11 +45,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      */
     private TextView mTvRegister;
 
-    /**
-     * 服务器IP地址
-     */
-    private String mIpAddress = getResources().getString(R.string.ip_address);
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 RequestParams rp = new RequestParams();
                 rp.put("phone", username);
                 rp.put("password", password);
-                asyncHttpClient.post(mIpAddress, rp, new AsyncHttpResponseHandler() {
+                asyncHttpClient.post(ZccApplication.IP_ADDRESS, rp, new AsyncHttpResponseHandler() {
                     @Override
                     public void onFailure(Throwable throwable, String s) {
                         Toast.makeText(LoginActivity.this, "网络连接失败 :(", Toast.LENGTH_SHORT).show();
@@ -93,8 +88,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             String result = jsonObject.getString("code");
                             if (result.equals("success")) {
                                 //更新用户中心的数据
-                                ZccApplication.editor.putInt(ZccApplication.LOGIN_KEY, ZccApplication.USER_LOGIN);
-                                ZccApplication.editor.commit();
+                                //ZccApplication.editor.putInt(ZccApplication.LOGIN_KEY, ZccApplication.USER_LOGIN);
+                                //ZccApplication.editor.commit();
+
                                 finish();
                             } else {
                                 Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
