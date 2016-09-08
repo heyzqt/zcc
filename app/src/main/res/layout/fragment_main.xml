@@ -185,6 +185,7 @@
            <com.zcc.widget.NoScrollListView
                android:layout_width="match_parent"
                android:layout_height="match_parent"
+               android:focusable="false"
                android:divider="@null"
                android:id="@+id/main_list">
            </com.zcc.widget.NoScrollListView>
