@@ -29,7 +29,7 @@ public class TypeAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 10;
+        return businessList.size();
     }
 
     @Override

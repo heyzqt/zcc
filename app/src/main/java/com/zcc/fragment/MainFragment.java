@@ -1,7 +1,6 @@
 package com.zcc.fragment;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -15,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
 import com.zcc.activity.BusinessInfoActivity;
 import com.zcc.activity.BusinessTypeActivity;
@@ -95,7 +95,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         dots.add(dot2);
         tv_topic = (TextView) v.findViewById(R.id.binner_tv_topic);
         try {
-            mListBusiness = DBHelper.getInstance(getActivity()).findAll(Business.class);
+            mListBusiness = DBHelper.getInstance(getActivity()).findAll(Selector.from(Business.class).where("id", "<", "10"));
         } catch (DbException e) {
             e.printStackTrace();
         }
@@ -134,9 +134,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent();
-                intent.putExtra("businessId",mListBusiness.get(position).getId()+"");
-                intent.setClass(getActivity(),BusinessInfoActivity.class);
+                Intent intent = new Intent();
+                intent.putExtra("businessId", mListBusiness.get(position).getId() + "");
+                intent.setClass(getActivity(), BusinessInfoActivity.class);
                 startActivity(intent);
             }
         });
