@@ -89,6 +89,7 @@
             android:background="@color/color_background">
 
             <TextView
+                android:id="@+id/text_bus_collect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -118,7 +119,6 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@color/color_fe4f00">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

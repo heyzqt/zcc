@@ -55,10 +55,11 @@
                     android:layout_weight="1">
 
                     <com.zcc.widget.RoundImageView
+                        android:id="@+id/type_img1"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@mipmap/aliuser_place_holder" />
+                        android:src="@mipmap/type1" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -76,10 +77,11 @@
                     android:layout_weight="1">
 
                     <com.zcc.widget.RoundImageView
+                        android:id="@+id/type_img2"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@mipmap/aliuser_place_holder" />
+                        android:src="@mipmap/type2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -97,10 +99,11 @@
                     android:layout_weight="1">
 
                     <com.zcc.widget.RoundImageView
+                        android:id="@+id/type_img3"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@mipmap/aliuser_place_holder" />
+                        android:src="@mipmap/type3" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -118,10 +121,11 @@
                     android:layout_weight="1">
 
                     <com.zcc.widget.RoundImageView
+                        android:id="@+id/type_img4"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@mipmap/aliuser_place_holder" />
+                        android:src="@mipmap/type4" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -149,10 +153,11 @@
                     android:layout_weight="1">
 
                     <com.zcc.widget.RoundImageView
+                        android:id="@+id/type_img5"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@mipmap/aliuser_place_holder" />
+                        android:src="@mipmap/type5" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -170,10 +175,11 @@
                     android:layout_weight="1">
 
                     <com.zcc.widget.RoundImageView
+                        android:id="@+id/type_img6"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@mipmap/aliuser_place_holder" />
+                        android:src="@mipmap/type6" />
 
                     <TextView
                         android:layout_width="wrap_content"
