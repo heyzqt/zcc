@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             //登录按钮
             case R.id.button_login:
+                mBtnLogin.setClickable(false);
                 final String phone = mEdtPhone.getText().toString();
                 String password = mEdtPassword.getText().toString();
 
@@ -131,6 +132,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 finish();
                             } else {
                                 Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+                                mBtnLogin.setClickable(true);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

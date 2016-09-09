@@ -2,19 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_background"
     android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/color_white"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="40dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:background="@color/color_white">
 
         <ImageView
             android:id="@+id/img_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:src="@mipmap/arrow_left_gray" />
@@ -26,6 +32,7 @@
             android:layout_marginRight="7dp"
             android:layout_toLeftOf="@+id/tv_search"
             android:layout_toRightOf="@+id/img_back"
+            android:layout_centerVertical="true"
             android:background="@drawable/editview_search_style"
             android:orientation="horizontal">
 
@@ -43,8 +50,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:background="@null"
-                android:hint="种草草商城周年庆"
-                android:textColorHint="@color/light_gray" />
+                android:hint="种草草商城周年庆" />
         </LinearLayout>
 
         <TextView
@@ -54,21 +60,38 @@
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="搜索"
+            android:layout_centerVertical="true"
             android:textColor="@color/color_5f646e"
             android:textSize="16dp" />
-
-        <View
-            android:id="@+id/view_line"
-            android:layout_width="match_parent"
-            android:layout_height="0.6dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="10dp"
-            android:background="@color/color_stroke" />
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/color_white"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_stroke" />
 
     <ListView
         android:id="@+id/lv_search"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null"/>
+        android:layout_marginTop="10dp"
+        android:divider="@null"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_listview_is_null"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="什么都没查到 :("
+        android:textColor="@color/color_666666"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
 </LinearLayout>
