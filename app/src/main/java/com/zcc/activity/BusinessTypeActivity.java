@@ -34,7 +34,6 @@ public class BusinessTypeActivity extends AppCompatActivity implements AdapterVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_businesstype);
-        Toast.makeText(getApplicationContext(), "" + getIntent().getStringExtra("type"), Toast.LENGTH_LONG).show();
         back = (ImageView) findViewById(R.id.type_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +41,6 @@ public class BusinessTypeActivity extends AppCompatActivity implements AdapterVi
                 BusinessTypeActivity.this.finish();
             }
         });
-
     }
 
     @Override
@@ -63,12 +61,10 @@ public class BusinessTypeActivity extends AppCompatActivity implements AdapterVi
     private void initdata() {
         lv = (ListView) findViewById(R.id.type_list);
         try {
-            // businessList=DBHelper.getInstance(getApplicationContext()).findAll(userInfo.class);
             businessList = DBHelper.getInstance(getApplicationContext()).findAll(Selector.from(Business.class).where("type", "=", getIntent().getStringExtra("type")));
         } catch (DbException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override

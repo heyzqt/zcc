@@ -125,16 +125,18 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                 }
                 //需要判断购物车是否有该物品--》后期添加
                 shoppingCar.setBusinessId(businessId);
-                if (shoppingCar00.size()> 0) {
-                    int counts = 0;
-                    counts = Integer.parseInt(shoppingCar00.get(0).getCount())+1;
-                    shoppingCar.setCount("" + counts);
-                } else {
+//                if (shoppingCar00.size()> 0) {
+//                    int counts = 0;
+//                    counts = Integer.parseInt(shoppingCar00.get(0).getCount())+1;
+//                    shoppingCar.setCount("" + counts);
+//                    shoppingCar.setUserId(userId);
+//                    shoppingCar.setPrice(business.getPrice());
+//                } else {
                     shoppingCar.setCount("1");
                     shoppingCar.setCreate_time((now.get(Calendar.MONTH) + 1) + "-" + now.get(Calendar.DAY_OF_MONTH));
                     shoppingCar.setUserId(userId);
                     shoppingCar.setPrice(business.getPrice());
-                }
+              //  }
                 try {
                     DBHelper.getInstance(getApplicationContext()).saveOrUpdate(shoppingCar);
                     Toast.makeText(getApplicationContext(), "加入购物车成功!", Toast.LENGTH_LONG).show();
