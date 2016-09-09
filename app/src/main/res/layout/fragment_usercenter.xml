@@ -23,7 +23,7 @@
             android:layout_below="@+id/img_user_head"
             android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
-            android:text="用户名"
+            android:text="请登录"
             android:textColor="@color/color_white"
             android:textSize="16dp" />
     </RelativeLayout>

@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.lidroid.xutils.db.sqlite.Selector;
+import com.lidroid.xutils.exception.DbException;
 import com.zcc.ZccApplication;
 import com.zcc.activity.AddressManageActivity;
 import com.zcc.activity.CollectManageActivity;
@@ -20,6 +22,9 @@ import com.zcc.activity.LoginActivity;
 import com.zcc.activity.OrderManageActivity;
 import com.zcc.activity.R;
 import com.zcc.activity.UserInfoActivity;
+import com.zcc.dbutils.DBHelper;
+import com.zcc.entity.User;
+import com.zcc.utils.Utils;
 import com.zcc.widget.RoundImageView;
 
 /**
@@ -74,6 +79,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
 
     private void initView(View convertView) {
         mUserHeadView = (RoundImageView) convertView.findViewById(R.id.img_user_head);
+        mUsernameTv = (TextView) convertView.findViewById(R.id.tv_user_head);
         mAddressRy = (RelativeLayout) convertView.findViewById(R.id.ry_address);
         mOrderRy = (RelativeLayout) convertView.findViewById(R.id.ry_order);
         mCollectRy = (RelativeLayout) convertView.findViewById(R.id.ry_collect);
@@ -83,6 +89,25 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
         mOrderRy.setOnClickListener(this);
         mCollectRy.setOnClickListener(this);
         mUserInfoRy.setOnClickListener(this);
+    }
+
+    @Override
+    public void onResume() {
+
+        Log.i("hello", "onResume: ");
+
+        //更新用户数据
+        if (ZccApplication.mUserId != -1) {
+            //从数据库找出对象
+            try {
+                User user = DBHelper.getInstance(getActivity()).findFirst(Selector.from(User.class).where("id", "=", ZccApplication.mUserId));
+                mUserHeadView.setImageResource(Utils.getInstance(getActivity()).getImgResource(user.getImgUrl()));
+                mUsernameTv.setText(user.getName());
+            } catch (DbException e) {
+                e.printStackTrace();
+            }
+        }
+        super.onResume();
     }
 
     @Override
@@ -98,7 +123,10 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
                     dialog.setPositiveButton("确认", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(getActivity(), "确认", Toast.LENGTH_SHORT).show();
+                            mUserHeadView.setImageResource(R.mipmap.aliuser_place_holder);
+                            mUsernameTv.setText("请登录");
+                            ZccApplication.editor.putInt(ZccApplication.USERID_KEY, -1);
+                            ZccApplication.editor.commit();
                         }
                     });
                     dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
