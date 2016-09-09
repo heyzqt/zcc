@@ -20,21 +20,37 @@
             android:textSize="18dp" />
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/tv_listview_is_null"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ry_bottom"
+        android:layout_below="@+id/ry_head"
+        android:layout_centerInParent="true"
+        android:drawableLeft="@mipmap/guide_cart_nm"
+        android:drawableStart="@mipmap/guide_cart_nm"
+        android:gravity="center"
+        android:text="快种种草 :)"
+        android:textColor="@color/color_666666"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
     <ListView
         android:id="@+id/lv_shoppingcar"
-        android:layout_below="@+id/ry_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/ry_bottom"
+        android:layout_below="@+id/ry_head"
         android:divider="@color/color_background"
         android:dividerHeight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:visibility="gone" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.6dp"
-        android:background="@color/color_stroke"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp" />
+        android:layout_marginBottom="50dp"
+        android:background="@color/color_stroke" />
 
     <RelativeLayout
         android:id="@+id/ry_bottom"
@@ -46,61 +62,61 @@
             android:id="@+id/img_circle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
             android:src="@mipmap/check_circle" />
 
         <TextView
             android:id="@+id/tv_businessname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="全选"
-            android:layout_toRightOf="@+id/img_circle"
-            android:layout_marginLeft="15dp"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/img_circle"
+            android:text="全选"
             android:textSize="14dp" />
 
         <TextView
             android:id="@+id/tv_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="合计:"
-            android:textColor="@color/color_21282d"
-            android:textSize="14dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
-            android:layout_toLeftOf="@+id/btn_account" />
+            android:layout_toLeftOf="@+id/btn_account"
+            android:text="合计:"
+            android:textColor="@color/color_21282d"
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="￥0"
-            android:textColor="@color/color_main"
-            android:textSize="14dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
-            android:layout_toLeftOf="@+id/btn_account" />
+            android:layout_toLeftOf="@+id/btn_account"
+            android:text="￥0"
+            android:textColor="@color/color_main"
+            android:textSize="14dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="不含运费"
-            android:textColor="@color/color_666666"
-            android:textSize="12dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="27dp"
-            android:layout_toLeftOf="@+id/btn_account" />
+            android:layout_toLeftOf="@+id/btn_account"
+            android:text="不含运费"
+            android:textColor="@color/color_666666"
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/btn_account"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:text="结算(0)"
-            android:textSize="16dp"
             android:background="@color/color_main"
-            android:textColor="@color/color_white" />
+            android:text="结算(0)"
+            android:textColor="@color/color_white"
+            android:textSize="16dp" />
 
     </RelativeLayout>
 

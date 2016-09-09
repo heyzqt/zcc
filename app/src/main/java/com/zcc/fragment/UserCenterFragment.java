@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
@@ -142,19 +143,35 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
                 break;
             //我的地址
             case R.id.ry_address:
-                startActivity(new Intent(getActivity(), AddressManageActivity.class));
+                if (!ZccApplication.mUserId.equals("-1")) {
+                    startActivity(new Intent(getActivity(), AddressManageActivity.class));
+                }else{
+                    Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
+                }
                 break;
             //我的订单
             case R.id.ry_order:
-                startActivity(new Intent(getActivity(), OrderManageActivity.class));
+                if (!ZccApplication.mUserId.equals("-1")) {
+                    startActivity(new Intent(getActivity(), OrderManageActivity.class));
+                }else{
+                    Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
+                }
                 break;
             //我的收藏
             case R.id.ry_collect:
-                startActivity(new Intent(getActivity(), CollectManageActivity.class));
+                if (!ZccApplication.mUserId.equals("-1")) {
+                    startActivity(new Intent(getActivity(), CollectManageActivity.class));
+                }else{
+                    Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
+                }
                 break;
             //我的个人中心
             case R.id.ry_userinfo:
-                startActivity(new Intent(getActivity(), UserInfoActivity.class));
+                if (!ZccApplication.mUserId.equals("-1")) {
+                    startActivity(new Intent(getActivity(), UserInfoActivity.class));
+                }else{
+                    Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
