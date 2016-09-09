@@ -1,9 +1,11 @@
 package com.zcc.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -68,5 +70,28 @@ public class AddressManageActivity extends AppCompatActivity {
             }
         });
 
+        mAddressLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+                intent.putExtra("addressId", mAddressLists.get(position).getId() + "");
+                intent.setClass(getApplicationContext(), AddressInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        try {
+            mAddressLists = DBHelper.getInstance(this).findAll(Address.class);
+            if (mAddressLists.size() != 0) {
+                mAddressAdapter = new AddressAdapter(this, mAddressLists, R.layout.item_listview_addressmanage);
+                mAddressLv.setAdapter(mAddressAdapter);
+            }
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
     }
 }
