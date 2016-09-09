@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.zcc.activity.BusinessInfoActivity;
 import com.zcc.entity.AdDomain;
 
 import java.util.List;
@@ -32,7 +33,6 @@ public class BinnerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        // return adList.size();
         return 100;
     }
 
@@ -40,8 +40,6 @@ public class BinnerAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         // TODO Auto-generated method stub
         ((ViewPager) container).removeView(imageViews.get(position % imageViews.size()));//
-        //   ((ViewPager)container).removeView(imageViews[position % 3]);
-        //   container.getChildAt(position)=null;
     }
 
     @Override
@@ -67,10 +65,11 @@ public class BinnerAdapter extends PagerAdapter {
             public void onClick(View v) {
                 // 处理点击图片事件
                 Toast.makeText(context, adList.get(position % imageViews.size()).getTopic().toString(), Toast.LENGTH_LONG).show();
+                String id = adList.get(position % imageViews.size()).getId().toString();
                 Intent intent = new Intent();
-                intent.putExtra("nid", adList.get(position % imageViews.size()).getId() + "");
-                //  intent.setClass(context,News_details_Activity.class);
-                //  context.startActivity(intent);
+                intent.putExtra("businessId", id + "");
+                intent.setClass(context, BusinessInfoActivity.class);
+                context.startActivity(intent);
             }
         });
         return iv;

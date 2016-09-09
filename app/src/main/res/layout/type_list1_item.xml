@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/concern_list1_rl"
+    android:background="@color/color_background"
+    android:minHeight="52dp"
+    android:layout_height="52dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="排行"
+    android:id="@+id/concern_list1_text"
+    android:textColor="@color/color_black"
+    android:textSize="16dp"
+    android:layout_centerInParent="true"/>
+</RelativeLayout>

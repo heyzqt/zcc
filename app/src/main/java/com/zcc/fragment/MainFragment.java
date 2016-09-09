@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -130,6 +131,15 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         listView = (NoScrollListView) v.findViewById(R.id.main_list);
         typeAdapter = new TypeAdapter(getActivity(), mListBusiness);
         listView.setAdapter(typeAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent();
+                intent.putExtra("businessId",mListBusiness.get(position).getId()+"");
+                intent.setClass(getActivity(),BusinessInfoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void startAd() {
