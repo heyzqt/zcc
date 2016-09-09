@@ -21,8 +21,7 @@ import com.zcc.entity.User;
 
 
 /**
- * Created by heyzqt on 2016/9/6.
- * <p/>
+ * Created by zyq on 2016/9/6.
  * 个人信息界面
  */
 public class UserInfoActivity extends AppCompatActivity implements View.OnClickListener {
