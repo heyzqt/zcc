@@ -124,8 +124,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                                 //存入SharePreference
                                 User user = DBHelper.getInstance(mContext).findFirst(Selector.from(User.class).where("phone","=",phone));
-                                ZccApplication.mUserId = user.getId();
-                                ZccApplication.editor.putInt(ZccApplication.USERID_KEY,user.getId());
+                                ZccApplication.mUserId = user.getId()+"";
+                                ZccApplication.editor.putString(ZccApplication.USERID_KEY,ZccApplication.mUserId);
                                 ZccApplication.editor.commit();
 
                                 finish();

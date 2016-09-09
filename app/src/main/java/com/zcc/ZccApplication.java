@@ -22,7 +22,7 @@ public class ZccApplication extends Application {
      */
     public final static String USERID_KEY = "user_id";
 
-    public static int mUserId = -1;
+    public static String mUserId = "-1";
 
     /**
      * 服务器IP地址
@@ -39,6 +39,6 @@ public class ZccApplication extends Application {
         editor = sp.edit();
 
         //获取用户登录状态
-        mUserId = sp.getInt(USERID_KEY, -1);
+        mUserId = sp.getString(USERID_KEY, "-1");
     }
 }

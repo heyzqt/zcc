@@ -112,8 +112,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     DBHelper.getInstance(mContext).save(user);
 
                                     //将userId保存
-                                    ZccApplication.mUserId = user.getId();
-                                    ZccApplication.editor.putInt(ZccApplication.USERID_KEY, user.getId());
+                                    ZccApplication.mUserId = user.getId()+"";
+                                    ZccApplication.editor.putString(ZccApplication.USERID_KEY, ZccApplication.mUserId);
                                     ZccApplication.editor.commit();
                                     finish();
                                 } else {

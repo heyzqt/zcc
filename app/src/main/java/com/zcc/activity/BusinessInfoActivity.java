@@ -1,6 +1,5 @@
 package com.zcc.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 
 import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
-import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.zcc.ZccApplication;
 import com.zcc.dbutils.DBHelper;
 import com.zcc.entity.Business;
@@ -64,7 +62,7 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
 
     private void initData() {
         now = Calendar.getInstance();
-        userId=ZccApplication.sp.getString("user_id","1");//暂时写成1
+        userId=ZccApplication.sp.getString(ZccApplication.USERID_KEY,"1");//暂时写成1
         businessId=getIntent().getStringExtra("businessId");
         business=new Business();
         try {

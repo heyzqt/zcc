@@ -92,8 +92,8 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onResume() {
-        //更新用户数据
-        if (ZccApplication.mUserId != -1) {
+        //用户登录
+        if (!ZccApplication.mUserId.equals("-1")) {
             //从数据库找出对象
             try {
                 User user = DBHelper.getInstance(getActivity()).findFirst(Selector.from(User.class).where("id", "=", ZccApplication.mUserId));
@@ -111,7 +111,8 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
         switch (v.getId()) {
             //用户头像
             case R.id.img_user_head:
-                if (ZccApplication.mUserId != -1) {
+                //用户登录
+                if (!ZccApplication.mUserId.equals("-1")) {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                     dialog.setTitle("退出登录");
                     dialog.setMessage("请确认是否要退出登录!");
@@ -121,8 +122,8 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
                         public void onClick(DialogInterface dialog, int which) {
                             mUserHeadView.setImageResource(R.mipmap.aliuser_place_holder);
                             mUsernameTv.setText("请登录");
-                            ZccApplication.mUserId = -1;
-                            ZccApplication.editor.putInt(ZccApplication.USERID_KEY, -1);
+                            ZccApplication.mUserId = "-1";
+                            ZccApplication.editor.putString(ZccApplication.USERID_KEY, "-1");
                             ZccApplication.editor.commit();
                         }
                     });
@@ -133,7 +134,9 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
                         }
                     });
                     dialog.show();
-                } else {
+                }
+                //用户未登录
+                else {
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
                 break;
