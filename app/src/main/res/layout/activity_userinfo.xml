@@ -1,25 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:background="@color/color_main">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:src="@mipmap/back"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:layout_centerInParent="true"
-        android:textColor="@color/color_white"
-        android:text="个人信息"/>
-</RelativeLayout>
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/color_main">
+
+        <ImageView
+            android:id="@+id/user_info_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="个人信息"
+            android:textColor="@color/color_white"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/liner_center_touxiang"
+        android:layout_width="fill_parent"
+        android:layout_height="85dp"
+        android:background="@color/color_white"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="9"
+            android:text="头像"
+            android:textSize="16sp" />
+
+        <com.zcc.widget.RoundImageView
+            android:id="@+id/image_center_toux"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/touxiang" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_background" />
+
+    <LinearLayout
+        android:id="@+id/liner_center_name"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@color/color_white"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="9"
+            android:text="昵称"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/Text_center_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:text="贰悫"
+            android:textColor="@color/light_969696"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_background" />
+
+    <LinearLayout
+        android:id="@+id/liner_center_phone"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@color/color_white"
+        android:weightSum="10">
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="9"
+            android:text="电话号码"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/Text_center_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:text="18408243864"
+            android:textColor="@color/light_969696"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_background" />
+
+    <LinearLayout
+        android:id="@+id/liner_center_sex"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@color/color_white"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="9"
+            android:text="性别"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/Text_center_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:text="女"
+            android:textColor="@color/light_969696"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button_center_exit"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/button_login_style"
+        android:text="退出当前账号"
+        android:textColor="@color/color_white"
+        android:textSize="18sp" />
 </LinearLayout>
