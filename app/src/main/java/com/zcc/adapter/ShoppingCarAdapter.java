@@ -28,11 +28,19 @@ public class ShoppingCarAdapter extends BaseAdapter {
 
     private List<ShoppingCar> mDatas = new ArrayList<>();
 
+    /**
+     * 记录商品的点中状态
+     * <p/>
+     * 0：未选中  1：选中
+     */
+    private List<String> mRecordLists = new ArrayList<>();
+
     private int mLayoutId;
 
-    public ShoppingCarAdapter(Context context, List<ShoppingCar> lists, int layoutId) {
+    public ShoppingCarAdapter(Context context, List<ShoppingCar> lists, List<String> recordlists, int layoutId) {
         this.mContext = context;
         this.mDatas = lists;
+        this.mRecordLists = recordlists;
         this.mLayoutId = layoutId;
     }
 
@@ -49,6 +57,10 @@ public class ShoppingCarAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return position;
+    }
+
+    public void setmRecordLists(List<String> mRecordLists) {
+        this.mRecordLists = mRecordLists;
     }
 
     @Override
@@ -75,6 +87,14 @@ public class ShoppingCarAdapter extends BaseAdapter {
             business = DBHelper.getInstance(mContext).findFirst(Selector.from(Business.class).where("id", "=", businessId));
         } catch (DbException e) {
             e.printStackTrace();
+        }
+
+        //判断当前商品选中状态
+        String isChecked = mRecordLists.get(position);
+        if(isChecked.equals("0")){
+            vh.mImgCircle.setImageResource(R.mipmap.check_circle);
+        }else{
+            vh.mImgCircle.setImageResource(R.mipmap.checked_circle);
         }
 
         //设置商品数据

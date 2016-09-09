@@ -59,7 +59,7 @@
         android:layout_alignParentBottom="true">
 
         <ImageView
-            android:id="@+id/img_circle"
+            android:id="@+id/img_circle_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
-            android:layout_toRightOf="@+id/img_circle"
+            android:layout_toRightOf="@+id/img_circle_all"
             android:text="全选"
             android:textSize="14dp" />
 
@@ -80,7 +80,7 @@
             android:id="@+id/tv_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="70dp"
             android:layout_marginTop="10dp"
             android:layout_toLeftOf="@+id/btn_account"
             android:text="合计:"
