@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mBtnLogin = (Button) findViewById(R.id.button_login);
         mTvRegister = (TextView) findViewById(R.id.tv_register);
 
+        mIvBack.setOnClickListener(this);
         mBtnLogin.setOnClickListener(this);
         mTvRegister.setOnClickListener(this);
     }

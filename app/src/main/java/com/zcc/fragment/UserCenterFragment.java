@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,9 +92,6 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onResume() {
-
-        Log.i("hello", "onResume: ");
-
         //更新用户数据
         if (ZccApplication.mUserId != -1) {
             //从数据库找出对象
@@ -125,6 +121,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
                         public void onClick(DialogInterface dialog, int which) {
                             mUserHeadView.setImageResource(R.mipmap.aliuser_place_holder);
                             mUsernameTv.setText("请登录");
+                            ZccApplication.mUserId = -1;
                             ZccApplication.editor.putInt(ZccApplication.USERID_KEY, -1);
                             ZccApplication.editor.commit();
                         }
@@ -137,7 +134,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
                     });
                     dialog.show();
                 } else {
-                    startActivityForResult(new Intent(getActivity(), LoginActivity.class), REQUEST_CODE);
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
                 break;
             //我的地址
