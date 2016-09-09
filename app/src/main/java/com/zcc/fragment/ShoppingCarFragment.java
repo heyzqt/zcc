@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.lidroid.xutils.exception.DbException;
 import com.zcc.activity.R;
@@ -23,6 +24,8 @@ import java.util.List;
  * 购物车Fragemnt
  */
 public class ShoppingCarFragment extends Fragment {
+
+    private TextView mTvNull;
 
     /**
      * 购物车列表
@@ -45,16 +48,24 @@ public class ShoppingCarFragment extends Fragment {
     }
 
     private void initView(View view) {
+
+        mTvNull = (TextView) view.findViewById(R.id.tv_listview_is_null);
+        mShoppingCarLv = (ListView) view.findViewById(R.id.lv_shoppingcar);
+
         //初始化数据
         try {
             mShoppingLists = DBHelper.getInstance(getActivity()).findAll(ShoppingCar.class);
-            mShoppingLists.add(mShoppingLists.get(0));
+            if (mShoppingLists.size() != 0) {
+                mShoppingAdapter = new ShoppingCarAdapter(getActivity(), mShoppingLists, R.layout.item_listview_shoppingcar);
+                mShoppingCarLv.setAdapter(mShoppingAdapter);
+                mShoppingCarLv.setVisibility(View.VISIBLE);
+                mTvNull.setVisibility(View.GONE);
+            }else{
+                mShoppingCarLv.setVisibility(View.GONE);
+                mTvNull.setVisibility(View.VISIBLE);
+            }
         } catch (DbException e) {
             e.printStackTrace();
         }
-
-        mShoppingCarLv = (ListView) view.findViewById(R.id.lv_shoppingcar);
-        mShoppingAdapter = new ShoppingCarAdapter(getActivity(), mShoppingLists, R.layout.item_listview_shoppingcar);
-        mShoppingCarLv.setAdapter(mShoppingAdapter);
     }
 }
