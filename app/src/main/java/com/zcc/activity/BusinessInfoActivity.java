@@ -1,10 +1,8 @@
 package com.zcc.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -34,22 +32,22 @@ import java.util.List;
  */
 public class BusinessInfoActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView back;
-    private RelativeLayout rl_collect;
-    private RelativeLayout rl_car;
-    private RelativeLayout rl_buy;
+    private RelativeLayout rl_collect;//添加收藏
+    private RelativeLayout rl_car;//添加购物车
+    private RelativeLayout rl_buy;//立即购买
     String businessId = "0";
     Business business;
     String userId = "0";
-    List<Collect> shoppingCar0 = null;
-    List<ShoppingCar> shoppingCar00 = null;
+    List<Collect> CollectList = null;
+    List<ShoppingCar> shoppingCarList = null;
 
     TextView b_name;
     TextView b_price;
     ImageView b_img;
     Calendar now;
     TextView tv_soucang;
-    ImageView Iv_add, Iv_reduce;
-    EditText EdCount;
+    ImageView Iv_add, Iv_reduce;//数量的添加和减少
+    EditText EdCount;//数量的输入框
 
 
     @Override
@@ -57,6 +55,7 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_businessinfo);
         userId = ZccApplication.mUserId;
+        //实例化界面的控件
         back = (ImageView) findViewById(R.id.businessInfo_back);
         rl_buy = (RelativeLayout) findViewById(R.id.businessInfo_buy);
         rl_car = (RelativeLayout) findViewById(R.id.businessInfo_car);
@@ -69,6 +68,7 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
         Iv_add = (ImageView) findViewById(R.id.icon_add);
         Iv_reduce = (ImageView) findViewById(R.id.icon_reduce);
         initData();
+        //绑定监听
         Iv_reduce.setOnClickListener(this);
         Iv_add.setOnClickListener(this);
         back.setOnClickListener(this);
@@ -77,14 +77,16 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
         rl_collect.setOnClickListener(this);
     }
 
+    /**
+     * 初始化商品的数据
+     */
     private void initData() {
-
         now = Calendar.getInstance();
         userId = ZccApplication.sp.getString(ZccApplication.USERID_KEY, "1");//暂时写成1
         businessId = getIntent().getStringExtra("businessId");
         business = new Business();
         try {
-            shoppingCar0 = DBHelper.getInstance(getApplicationContext()).findAll(Selector.from(Collect.class)
+            CollectList = DBHelper.getInstance(getApplicationContext()).findAll(Selector.from(Collect.class)
                     .where("businessId", "=", businessId));
 
             business = DBHelper.getInstance(getApplicationContext()).findFirst(Selector.from(Business.class).where("id", "=", businessId));
@@ -96,7 +98,7 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
         }
         //查找商品对象
         tv_soucang.setText("添加收藏");
-        if (shoppingCar0.size() > 0) {
+        if (CollectList.size() > 0) {
             tv_soucang.setText("取消收藏");
         }
 
@@ -128,26 +130,25 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                     Toast.makeText(this, "请先登录", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(this, LoginActivity.class));
                 }
-
                 break;
             case R.id.businessInfo_car:
                 if (!ZccApplication.mUserId.equals("-1")) {
                     ShoppingCar shoppingCar = new ShoppingCar();
                     try {
                         WhereBuilder wb = WhereBuilder.b("businessId", "=", businessId).and("userId", "=", ZccApplication.mUserId);
-                        shoppingCar00 = DBHelper.getInstance(getApplicationContext()).findAll(ShoppingCar.class, wb);
+                        shoppingCarList = DBHelper.getInstance(getApplicationContext()).findAll(ShoppingCar.class, wb);
                     } catch (DbException e) {
                         e.printStackTrace();
                     }
                     //需要判断购物车是否有该物品--》后期添加
                     shoppingCar.setBusinessId(businessId);
-                    if (shoppingCar00.size() > 0) {
+                    if (shoppingCarList.size() > 0) {
                         int counts = 0;
                         int adds = Integer.parseInt(EdCount.getText().toString());
-                        counts = Integer.parseInt(shoppingCar00.get(0).getCount()) + adds;
+                        counts = Integer.parseInt(shoppingCarList.get(0).getCount()) + adds;
                         shoppingCar.setCount("" + counts);
                         shoppingCar.setUserId(userId);
-                        shoppingCar.setId(shoppingCar00.get(0).getId());
+                        shoppingCar.setId(shoppingCarList.get(0).getId());
                         shoppingCar.setPrice(business.getPrice());
                     } else {
                         shoppingCar.setCount(EdCount.getText().toString());
@@ -165,7 +166,6 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                     Toast.makeText(this, "请先登录", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(this, LoginActivity.class));
                 }
-
                 //加入购物车添加对象购物车
                 break;
             case R.id.businessInfo_collect:
@@ -212,6 +212,5 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                 }
                 break;
         }
-
     }
 }

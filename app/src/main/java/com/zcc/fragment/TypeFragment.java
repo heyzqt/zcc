@@ -10,15 +10,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
 import com.zcc.activity.BusinessInfoActivity;
 import com.zcc.activity.R;
 import com.zcc.activity.SearchActivity;
-import com.zcc.adapter.Type_fragment_adapter1;
-import com.zcc.adapter.Type_fragment_adapter2;
+import com.zcc.adapter.TypeFragmentAdapterLeft;
+import com.zcc.adapter.TypeFragmentAdapterRight;
 import com.zcc.dbutils.DBHelper;
 import com.zcc.entity.Business;
 
@@ -32,8 +31,8 @@ import java.util.List;
 public class TypeFragment extends Fragment implements AdapterView.OnItemClickListener{
     ListView lv1;
     ListView lv2;
-    Type_fragment_adapter1 adapter1;
-    Type_fragment_adapter2 adapter2;
+    TypeFragmentAdapterLeft adapter1;
+    TypeFragmentAdapterRight adapter2;
     String[] str;
     int ifs = 1;
     private List<Business> businessList1=null;
@@ -58,7 +57,7 @@ public class TypeFragment extends Fragment implements AdapterView.OnItemClickLis
         });
         str = new String[]{"美妆护肤","秋装新品","数码商城","换季特卖","水果超市","数码商城","美妆护肤","服装城",
                 "美妆护肤","秋装新品","数码商城","换季特卖","水果超市","数码商城","美妆护肤","服装城"};
-        adapter1 = new Type_fragment_adapter1(getActivity(), str);
+        adapter1 = new TypeFragmentAdapterLeft(getActivity(), str);
         lv1 = (ListView) v.findViewById(R.id.type_listview1);
         lv1.setAdapter(adapter1);
         lv1.setOnItemClickListener(this);
@@ -70,7 +69,7 @@ public class TypeFragment extends Fragment implements AdapterView.OnItemClickLis
         } catch (DbException e) {
             e.printStackTrace();
         }
-        adapter2 = new Type_fragment_adapter2(getActivity(),businessList1);
+        adapter2 = new TypeFragmentAdapterRight(getActivity(),businessList1);
         lv2 = (ListView) v.findViewById(R.id.type_listview2);
         lv2.setAdapter(adapter2);
         lv2.setOnItemClickListener(this);
@@ -82,17 +81,17 @@ public class TypeFragment extends Fragment implements AdapterView.OnItemClickLis
             case R.id.type_listview1:
                 adapter1.changeSelected(position);
                 if (position % 3 == 0) {
-                    adapter2 = new Type_fragment_adapter2(getActivity(),businessList1);
+                    adapter2 = new TypeFragmentAdapterRight(getActivity(),businessList1);
                     ifs = 1;
                     lv2.setAdapter(adapter2);
                     adapter2.notifyDataSetChanged();
                 } else if(position % 3 == 1){
-                    adapter2 = new Type_fragment_adapter2(getActivity(),businessList2);
+                    adapter2 = new TypeFragmentAdapterRight(getActivity(),businessList2);
                     ifs=2;
                     lv2.setAdapter(adapter2);
                     adapter2.notifyDataSetChanged();
                 }else{
-                    adapter2 = new Type_fragment_adapter2(getActivity(),businessList3);
+                    adapter2 = new TypeFragmentAdapterRight(getActivity(),businessList3);
                     ifs=3;
                     lv2.setAdapter(adapter2);
                     adapter2.notifyDataSetChanged();

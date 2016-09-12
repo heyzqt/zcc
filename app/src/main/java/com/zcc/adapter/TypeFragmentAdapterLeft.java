@@ -13,7 +13,7 @@ import com.zcc.activity.R;
 /**
  * Created by zyq on 2016/9/8.
  */
-public class Type_fragment_adapter1 extends BaseAdapter {
+public class TypeFragmentAdapterLeft extends BaseAdapter {
     String s[] = null;
     Context mContext;
     LayoutInflater inflater;
@@ -26,8 +26,8 @@ public class Type_fragment_adapter1 extends BaseAdapter {
         }
     }
 
-    public Type_fragment_adapter1(Context context,
-                                  String s[]) {
+    public TypeFragmentAdapterLeft(Context context,
+                                   String s[]) {
         this.s = s;
         mContext = context;
     }

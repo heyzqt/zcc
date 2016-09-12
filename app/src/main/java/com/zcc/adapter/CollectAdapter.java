@@ -21,12 +21,12 @@ import java.util.List;
 /**
  * Created by 张艳琴 on 2016/9/9.
  */
-public class Collect_Adapter extends BaseAdapter {
+public class CollectAdapter extends BaseAdapter {
     List<Collect> businessList = null;
     Context mContext;
     LayoutInflater inflater;
 
-    public Collect_Adapter(Context context, List<Collect> businessList) {
+    public CollectAdapter(Context context, List<Collect> businessList) {
         this.businessList = businessList;
         mContext = context;
     }

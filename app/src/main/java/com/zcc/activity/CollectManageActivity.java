@@ -3,24 +3,18 @@ package com.zcc.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.db.sqlite.WhereBuilder;
 import com.lidroid.xutils.exception.DbException;
-import com.zcc.adapter.Collect_Adapter;
-import com.zcc.adapter.TypeAdapter;
+import com.zcc.adapter.CollectAdapter;
 import com.zcc.dbutils.DBHelper;
-import com.zcc.entity.Business;
 import com.zcc.entity.Collect;
-import com.zcc.entity.Order;
 
 import java.util.List;
 
@@ -32,7 +26,7 @@ import java.util.List;
 public class CollectManageActivity extends AppCompatActivity implements AdapterView.OnItemClickListener,AdapterView.OnItemLongClickListener {
     ListView lv;
     ImageView back;
-    Collect_Adapter typeAdapter;
+    CollectAdapter typeAdapter;
     List<Collect> CollectList = null;
 
     @Override
@@ -53,7 +47,7 @@ public class CollectManageActivity extends AppCompatActivity implements AdapterV
         super.onResume();
         initdata();
         if (CollectList != null && CollectList.size() > 0) {
-            typeAdapter = new Collect_Adapter(this, CollectList);
+            typeAdapter = new CollectAdapter(this, CollectList);
             lv.setAdapter(typeAdapter);
             lv.setOnItemClickListener(this);
             lv.setOnItemLongClickListener(this);

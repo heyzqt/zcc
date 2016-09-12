@@ -21,12 +21,12 @@ import java.util.List;
 /**
  * Created by 张艳琴 on 2016/9/9.
  */
-public class Order_adapter extends BaseAdapter {
+public class OrderAdapter extends BaseAdapter {
     List<Order> businessList = null;
     Context mContext;
     LayoutInflater inflater;
 
-    public Order_adapter(Context context, List<Order> businessList) {
+    public OrderAdapter(Context context, List<Order> businessList) {
         this.businessList = businessList;
         mContext = context;
     }

@@ -17,12 +17,12 @@ import java.util.List;
 /**
  * Created by skysoft on 2016/8/3.
  */
-public class Type_fragment_adapter2 extends BaseAdapter {
+public class TypeFragmentAdapterRight extends BaseAdapter {
     List<Business> concern_list = null;
     Context mContext;
     LayoutInflater inflater;
 
-    public Type_fragment_adapter2(Context context, List<Business> list) {
+    public TypeFragmentAdapterRight(Context context, List<Business> list) {
         concern_list = list;
         mContext = context;
     }
