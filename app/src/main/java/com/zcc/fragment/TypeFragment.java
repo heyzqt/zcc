@@ -105,7 +105,7 @@ public class TypeFragment extends Fragment implements AdapterView.OnItemClickLis
                 }else if(ifs==2){
                     intent.putExtra("businessId", businessList2.get(position).getId() + "");
                 }else{
-                    intent.putExtra("businessId", businessList2.get(position).getId() + "");
+                    intent.putExtra("businessId", businessList3.get(position).getId() + "");
                 }
                 intent.setClass(getActivity(), BusinessInfoActivity.class);
                 startActivity(intent);

@@ -116,12 +116,6 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
     }
 
     @Override
-    public void onStart() {
-        Log.e("SHoppingCar----","onStart()");
-        super.onStart();
-    }
-
-    @Override
     public void onResume() {
         //初始化数据
         try {
@@ -144,9 +138,7 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
         } catch (DbException e) {
             e.printStackTrace();
         }
-        Log.e("SHoppingCar----","onResume()");
         super.onResume();
-
     }
 
     @Override
