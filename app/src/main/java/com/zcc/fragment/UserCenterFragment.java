@@ -98,11 +98,14 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
             //从数据库找出对象
             try {
                 User user = DBHelper.getInstance(getActivity()).findFirst(Selector.from(User.class).where("id", "=", ZccApplication.mUserId));
-                mUserHeadView.setImageResource(Utils.getInstance(getActivity()).getImgResource(user.getImgUrl()));
+                mUserHeadView.setImageResource(R.mipmap.touxiang);
                 mUsernameTv.setText(user.getName());
             } catch (DbException e) {
                 e.printStackTrace();
             }
+        } else {
+            mUserHeadView.setImageResource(R.mipmap.aliuser_place_holder);
+            mUsernameTv.setText("请登录");
         }
         super.onResume();
     }
@@ -114,27 +117,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
             case R.id.img_user_head:
                 //用户登录
                 if (!ZccApplication.mUserId.equals("-1")) {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-                    dialog.setTitle("退出登录");
-                    dialog.setMessage("请确认是否要退出登录!");
-                    dialog.setCancelable(true);
-                    dialog.setPositiveButton("确认", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            mUserHeadView.setImageResource(R.mipmap.aliuser_place_holder);
-                            mUsernameTv.setText("请登录");
-                            ZccApplication.mUserId = "-1";
-                            ZccApplication.editor.putString(ZccApplication.USERID_KEY, "-1");
-                            ZccApplication.editor.commit();
-                        }
-                    });
-                    dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    dialog.show();
+                    startActivity(new Intent(getActivity(), UserInfoActivity.class));
                 }
                 //用户未登录
                 else {
@@ -145,7 +128,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
             case R.id.ry_address:
                 if (!ZccApplication.mUserId.equals("-1")) {
                     startActivity(new Intent(getActivity(), AddressManageActivity.class));
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
@@ -154,7 +137,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
             case R.id.ry_order:
                 if (!ZccApplication.mUserId.equals("-1")) {
                     startActivity(new Intent(getActivity(), OrderManageActivity.class));
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
@@ -163,7 +146,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
             case R.id.ry_collect:
                 if (!ZccApplication.mUserId.equals("-1")) {
                     startActivity(new Intent(getActivity(), CollectManageActivity.class));
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
@@ -172,7 +155,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
             case R.id.ry_userinfo:
                 if (!ZccApplication.mUserId.equals("-1")) {
                     startActivity(new Intent(getActivity(), UserInfoActivity.class));
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                 }

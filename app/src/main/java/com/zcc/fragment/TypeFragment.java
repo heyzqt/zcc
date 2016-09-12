@@ -85,25 +85,27 @@ public class TypeFragment extends Fragment implements AdapterView.OnItemClickLis
                     adapter2 = new Type_fragment_adapter2(getActivity(),businessList1);
                     ifs = 1;
                     lv2.setAdapter(adapter2);
+                    adapter2.notifyDataSetChanged();
                 } else if(position % 3 == 1){
                     adapter2 = new Type_fragment_adapter2(getActivity(),businessList2);
                     ifs=2;
                     lv2.setAdapter(adapter2);
+                    adapter2.notifyDataSetChanged();
                 }else{
                     adapter2 = new Type_fragment_adapter2(getActivity(),businessList3);
                     ifs=3;
                     lv2.setAdapter(adapter2);
+                    adapter2.notifyDataSetChanged();
                 }
                 break;
             case R.id.type_listview2:
-                  Toast.makeText(getActivity(), "啊，你点中我了 " + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 if(ifs==1){
                     intent.putExtra("businessId", businessList1.get(position).getId() + "");
                 }else if(ifs==2){
                     intent.putExtra("businessId", businessList2.get(position).getId() + "");
                 }else{
-                    intent.putExtra("businessId", businessList2.get(position).getId() + "");
+                    intent.putExtra("businessId", businessList3.get(position).getId() + "");
                 }
                 intent.setClass(getActivity(), BusinessInfoActivity.class);
                 startActivity(intent);

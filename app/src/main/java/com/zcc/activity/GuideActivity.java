@@ -2,6 +2,7 @@ package com.zcc.activity;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -48,6 +49,8 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
     private List<Collect> mListCollect;
     private List<Order> mListOrder;
     private List<Address> mListAddress;
+    Handler handler;
+    private Runnable rr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,18 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
         initAddress();
         initOrder();
         initShoppingcar();
+        handler = new Handler();
+        rr = new Runnable() {
+            @Override
+            public void run() {//进入主界面
+                mScrollLayout.setVisibility(View.GONE);
+                pointLLayout.setVisibility(View.GONE);
+                mainRLayout.setBackgroundResource(R.mipmap.guide3);
+                Intent intent = new Intent(GuideActivity.this, MainActivity.class);
+                GuideActivity.this.startActivity(intent);
+                GuideActivity.this.finish();
+            }
+        };
     }
 
     private void initbusiness() {
@@ -76,15 +91,10 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
         client.get(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(String s) {
-                //   Toast.makeText(getApplicationContext(), "" + s, Toast.LENGTH_LONG).show();//解析Json数据
-                //二、  JSON 数组的情况解析(    形如：{ "languag"：[{"key":"123","password","456"},
-                //*		                             {"key":"ha","password":"haha"}]
-                //*                     }     );
                 JSONObject root = null;  //---新建JSONObject根对象 root;
                 try {
                     root = new JSONObject(s.toString());
                     JSONArray arry = root.getJSONArray("datas");    // ---获得数组对象 arry;
-                    //*(3)、            使用 for 循环 解析数据;
                     for (int i = 0; i < arry.length(); i++) {
                         Business business = new Business();
                         JSONObject lo = arry.getJSONObject(i);
@@ -101,12 +111,11 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                         mListBusiness.add(business);
                     }
                     DBHelper.getInstance(getApplicationContext()).saveAll(mListBusiness);
-                    Toast.makeText(getApplication(), "business添加成功!", Toast.LENGTH_SHORT).show();
+                    handler.postDelayed(rr, 1000);// 跳入主界面
                     Log.e("database-----", "business添加成功!");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (DbException e) {
-                    Toast.makeText(getApplication(), "business添加失败!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "business添加成功0000");
                     e.printStackTrace();
                 }
@@ -116,6 +125,7 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
             @Override
             public void onFailure(Throwable throwable, String s) {
                 super.onFailure(throwable, s);
+                Toast.makeText(GuideActivity.this,"无网络连接",Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -150,12 +160,10 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                         mListUser.add(user);
                     }
                     DBHelper.getInstance(getApplicationContext()).saveAll(mListUser);
-                    Toast.makeText(getApplication(), "user添加成功!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "user添加成功!");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (DbException e) {
-                    Toast.makeText(getApplication(), "user添加失败!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "user添加成功!0000");
                     e.printStackTrace();
                 }
@@ -195,12 +203,10 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                         mListCollect.add(collect);
                     }
                     DBHelper.getInstance(getApplicationContext()).saveAll(mListCollect);
-                    Toast.makeText(getApplication(), "collect添加成功!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "collect添加成功!");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (DbException e) {
-                    Toast.makeText(getApplication(), "collect添加失败!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "collect添加成功!00000");
                     e.printStackTrace();
                 }
@@ -238,12 +244,10 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                         mListAddress.add(address);
                     }
                     DBHelper.getInstance(getApplicationContext()).saveAll(mListAddress);
-                    Toast.makeText(getApplication(), "address添加成功!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "address添加成功!");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (DbException e) {
-                    Toast.makeText(getApplication(), "address添加失败!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "address添加成功!00000");
                     e.printStackTrace();
                 }
@@ -292,12 +296,10 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                         mListOrder.add(order);
                     }
                     DBHelper.getInstance(getApplicationContext()).saveAll(mListOrder);
-                    Toast.makeText(getApplication(), "Order添加成功!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "Order添加成功!");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (DbException e) {
-                    Toast.makeText(getApplication(), "Order添加失败!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "Order添加成功!00000");
                     e.printStackTrace();
                 }
@@ -344,12 +346,10 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
                         mListShoppingCar.add(shoppingCar);
                     }
                     DBHelper.getInstance(getApplicationContext()).saveAll(mListShoppingCar);
-                    Toast.makeText(getApplication(), "ShoppingCar添加成功!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "ShoppingCar添加成功!");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (DbException e) {
-                    Toast.makeText(getApplication(), "ShoppingCar添加失败!", Toast.LENGTH_SHORT).show();
                     Log.e("database-----", "ShoppingCar添加成功00000!");
                     e.printStackTrace();
                 }
@@ -371,17 +371,6 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
         pointLLayout = (LinearLayout) findViewById(R.id.llayout);
         mainRLayout = (RelativeLayout) findViewById(R.id.mainRLayout);
         rl = (RelativeLayout) findViewById(R.id.guide_rl);
-        rl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mScrollLayout.setVisibility(View.GONE);
-                pointLLayout.setVisibility(View.GONE);
-                mainRLayout.setBackgroundResource(R.mipmap.guide3);
-                Intent intent = new Intent(GuideActivity.this, MainActivity.class);
-                GuideActivity.this.startActivity(intent);
-                GuideActivity.this.finish();
-            }
-        });
         count = mScrollLayout.getChildCount();
         imgs = new ImageView[count];
         for (int i = 0; i < count; i++) {
