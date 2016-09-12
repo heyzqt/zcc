@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -45,6 +46,8 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
     ImageView b_img;
     Calendar now;
     TextView tv_soucang;
+    ImageView Iv_add,Iv_reduce;
+    EditText EdCount;
 
 
     @Override
@@ -59,7 +62,12 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
         b_price = (TextView) findViewById(R.id.businessInfo_price);
         b_img = (ImageView) findViewById(R.id.businessInfo_img);
         tv_soucang = (TextView) findViewById(R.id.text_bus_collect);
+        EdCount= (EditText) findViewById(R.id.edit_bus_count);
+        Iv_add= (ImageView) findViewById(R.id.icon_add);
+        Iv_reduce= (ImageView) findViewById(R.id.icon_reduce);
         initData();
+        Iv_reduce.setOnClickListener(this);
+        Iv_add.setOnClickListener(this);
         back.setOnClickListener(this);
         rl_car.setOnClickListener(this);
         rl_buy.setOnClickListener(this);
@@ -125,18 +133,20 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                 }
                 //需要判断购物车是否有该物品--》后期添加
                 shoppingCar.setBusinessId(businessId);
-//                if (shoppingCar00.size()> 0) {
-//                    int counts = 0;
-//                    counts = Integer.parseInt(shoppingCar00.get(0).getCount())+1;
-//                    shoppingCar.setCount("" + counts);
-//                    shoppingCar.setUserId(userId);
-//                    shoppingCar.setPrice(business.getPrice());
-//                } else {
-                    shoppingCar.setCount("1");
+                if (shoppingCar00.size()> 0) {
+                    int counts = 0;
+                    int adds=Integer.parseInt(EdCount.getText().toString());
+                    counts = Integer.parseInt(shoppingCar00.get(0).getCount())+adds;
+                    shoppingCar.setCount("" + counts);
+                    shoppingCar.setUserId(userId);
+                    shoppingCar.setId(shoppingCar00.get(0).getId());
+                    shoppingCar.setPrice(business.getPrice());
+                } else {
+                    shoppingCar.setCount(EdCount.getText().toString());
                     shoppingCar.setCreate_time((now.get(Calendar.MONTH) + 1) + "-" + now.get(Calendar.DAY_OF_MONTH));
                     shoppingCar.setUserId(userId);
                     shoppingCar.setPrice(business.getPrice());
-              //  }
+               }
                 try {
                     DBHelper.getInstance(getApplicationContext()).saveOrUpdate(shoppingCar);
                     Toast.makeText(getApplicationContext(), "加入购物车成功!", Toast.LENGTH_LONG).show();
@@ -171,6 +181,18 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                     } catch (DbException e) {
                         e.printStackTrace();
                     }
+                }
+                break;
+            case R.id.icon_add:
+                int couns=Integer.parseInt(EdCount.getText().toString())+1;
+                EdCount.setText(couns+"");
+                break;
+            case R.id.icon_reduce:
+                int counss=Integer.parseInt(EdCount.getText().toString())-1;
+                if (counss<=0){
+                    EdCount.setText("0");
+                }else {
+                    EdCount.setText(counss + "");
                 }
                 break;
         }

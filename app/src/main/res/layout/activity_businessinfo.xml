@@ -31,6 +31,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/business_liner"
         android:layout_below="@+id/businessInfo_title">
 
         <RelativeLayout
@@ -59,7 +60,7 @@
 
             <TextView
                 android:id="@+id/businessInfo_price"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/businessInfo_name"
                 android:layout_marginLeft="10dp"
@@ -71,11 +72,55 @@
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:id="@+id/icon_reduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/businessInfo_name"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@+id/count_liner"
+                android:src="@mipmap/icon_reduce" />
+
+            <LinearLayout
+                android:id="@+id/count_liner"
+                android:layout_toLeftOf="@+id/icon_add"
+                android:layout_width="35dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/businessInfo_name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edit_counts"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edit_bus_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#00ffffff"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:text="1"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/icon_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/businessInfo_name"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/icon_add" />
         </RelativeLayout>
     </ScrollView>
 
 
     <LinearLayout
+        android:id="@+id/business_liner"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
@@ -119,6 +164,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@color/color_fe4f00">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -45,12 +45,6 @@
             android:name=".CollectManageActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".CreateOrderActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".CreateOrderSucceedOrFailedActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity
             android:name=".OrderInfoActivity"
             android:screenOrientation="portrait"></activity>
         <activity

@@ -27,7 +27,7 @@
             android:id="@+id/guide_rl"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@mipmap/guide_for_olympic" />
+            android:background="@mipmap/guide3" />
 
 
         <!-- 点击该按钮后就进入OtherActivit了 -->

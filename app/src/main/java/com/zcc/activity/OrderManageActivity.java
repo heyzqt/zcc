@@ -75,8 +75,8 @@ public class OrderManageActivity extends AppCompatActivity implements AdapterVie
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent();
-        intent.putExtra("businessId", CollectList.get(position).getBusinessId() + "");
-        intent.setClass(getApplicationContext(), BusinessInfoActivity.class);
+        intent.putExtra("OrderId", CollectList.get(position).getId() + "");
+        intent.setClass(getApplicationContext(), OrderInfoActivity.class);
         startActivity(intent);
     }
 

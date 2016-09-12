@@ -376,7 +376,7 @@ public class GuideActivity extends Activity implements OnViewChangeListener {
             public void onClick(View v) {
                 mScrollLayout.setVisibility(View.GONE);
                 pointLLayout.setVisibility(View.GONE);
-                mainRLayout.setBackgroundResource(R.mipmap.guide_for_olympic);
+                mainRLayout.setBackgroundResource(R.mipmap.guide3);
                 Intent intent = new Intent(GuideActivity.this, MainActivity.class);
                 GuideActivity.this.startActivity(intent);
                 GuideActivity.this.finish();
