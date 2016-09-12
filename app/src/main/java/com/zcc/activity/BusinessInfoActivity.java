@@ -3,7 +3,6 @@ package com.zcc.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -109,10 +108,8 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                 try {
                     DBHelper.getInstance(getApplicationContext()).save(order);
                     Toast.makeText(getApplicationContext(), "购买成功!", Toast.LENGTH_LONG).show();
-                    Log.e("DBLog------", "添加order成功");
                 } catch (DbException e) {
                     e.printStackTrace();
-                    Log.e("DBLog------", "添加order成功");
                 }
                 break;
             case R.id.businessInfo_car:
@@ -140,10 +137,8 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                 try {
                     DBHelper.getInstance(getApplicationContext()).saveOrUpdate(shoppingCar);
                     Toast.makeText(getApplicationContext(), "加入购物车成功!", Toast.LENGTH_LONG).show();
-                    Log.e("DBLog------", "添加car成功");
                 } catch (DbException e) {
                     e.printStackTrace();
-                    Log.e("DBerror------", "添加car失败");
                 }
                 //加入购物车添加对象购物车
                 break;
@@ -158,10 +153,8 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                         DBHelper.getInstance(getApplicationContext()).save(collect);
                         Toast.makeText(getApplicationContext(), "收藏成功!", Toast.LENGTH_LONG).show();
                         tv_soucang.setText("取消收藏");
-                        Log.e("DBLog------", "添加collect成功");
                     } catch (DbException e) {
                         e.printStackTrace();
-                        Log.e("DBerror------", "添加collect失败");
                     }
                 } else {
                     WhereBuilder wb = WhereBuilder.b("businessId", "=", businessId);

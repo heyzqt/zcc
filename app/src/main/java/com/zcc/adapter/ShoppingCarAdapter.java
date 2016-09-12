@@ -59,7 +59,11 @@ public class ShoppingCarAdapter extends BaseAdapter {
         return position;
     }
 
-    public void setmRecordLists(List<String> mRecordLists) {
+    public void setDatas(List<ShoppingCar> mDatas) {
+        this.mDatas = mDatas;
+    }
+
+    public void setRecordLists(List<String> mRecordLists) {
         this.mRecordLists = mRecordLists;
     }
 
@@ -91,9 +95,9 @@ public class ShoppingCarAdapter extends BaseAdapter {
 
         //判断当前商品选中状态
         String isChecked = mRecordLists.get(position);
-        if(isChecked.equals("0")){
+        if (isChecked.equals("0")) {
             vh.mImgCircle.setImageResource(R.mipmap.check_circle);
-        }else{
+        } else {
             vh.mImgCircle.setImageResource(R.mipmap.checked_circle);
         }
 
