@@ -2,6 +2,7 @@ package com.zcc.fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.lidroid.xutils.exception.DbException;
 import com.zcc.ZccApplication;
+import com.zcc.activity.LoginActivity;
 import com.zcc.activity.R;
 import com.zcc.adapter.ShoppingCarAdapter;
 import com.zcc.dbutils.DBHelper;
@@ -219,6 +221,7 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
             case R.id.btn_account:
                 if (ZccApplication.mUserId.equals("-1")) {
                     Toast.makeText(mContext, "请先登录！！", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
                     return;
                 }
 
@@ -247,7 +250,7 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                         order.setCount(mShoppingLists.get(i).getCount());
                         order.setBusinessId(mShoppingLists.get(i).getBusinessId());
                         order.setPrice(mShoppingLists.get(i).getPrice());
-                        order.setCreateTime((nowTime.get(Calendar.MONTH) + 1) + "-" + nowTime.get(Calendar.DAY_OF_MONTH));
+                        order.setCreateTime((nowTime.get(Calendar.YEAR)) + "-" + (nowTime.get(Calendar.MONTH) + 1) + "-" + nowTime.get(Calendar.DAY_OF_MONTH));
                         orderLists.add(order);
                     }
                 }

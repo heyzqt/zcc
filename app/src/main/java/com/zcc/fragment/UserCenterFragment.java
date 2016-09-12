@@ -147,6 +147,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
                     startActivity(new Intent(getActivity(), AddressManageActivity.class));
                 }else{
                     Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
                 break;
             //我的订单
@@ -155,6 +156,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
                     startActivity(new Intent(getActivity(), OrderManageActivity.class));
                 }else{
                     Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
                 break;
             //我的收藏
@@ -163,6 +165,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
                     startActivity(new Intent(getActivity(), CollectManageActivity.class));
                 }else{
                     Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
                 break;
             //我的个人中心
@@ -171,6 +174,7 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
                     startActivity(new Intent(getActivity(), UserInfoActivity.class));
                 }else{
                     Toast.makeText(getActivity(), "请登录", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
                 break;
         }

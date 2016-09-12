@@ -80,7 +80,7 @@
                     android:gravity="right"
                     android:singleLine="true"
                     android:text="贰悫"
-                    android:textColor="@color/light_969696"
+                    android:textColor="@color/color_black"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -117,7 +117,7 @@
                     android:gravity="right"
                     android:singleLine="true"
                     android:text="贰悫"
-                    android:textColor="@color/light_969696"
+                    android:textColor="@color/color_black"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -154,7 +154,7 @@
                     android:gravity="right"
                     android:singleLine="true"
                     android:text="18408243864"
-                    android:textColor="@color/light_969696"
+                    android:textColor="@color/color_black"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -191,7 +191,7 @@
                     android:gravity="right"
                     android:singleLine="true"
                     android:text="四川省成都市郫县西华大学"
-                    android:textColor="@color/light_969696"
+                    android:textColor="@color/color_black"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -228,7 +228,7 @@
                     android:gravity="right"
                     android:singleLine="true"
                     android:text="x1"
-                    android:textColor="@color/light_969696"
+                    android:textColor="@color/color_black"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -266,7 +266,7 @@
                     android:gravity="right"
                     android:singleLine="true"
                     android:text="￥199.00"
-                    android:textColor="@color/light_969696"
+                    android:textColor="@color/color_black"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -303,7 +303,7 @@
                     android:gravity="right"
                     android:singleLine="true"
                     android:text="￥ 199.00"
-                    android:textColor="@color/light_969696"
+                    android:textColor="@color/color_black"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -340,7 +340,7 @@
                     android:gravity="right"
                     android:singleLine="true"
                     android:text="2016-09-09"
-                    android:textColor="@color/light_969696"
+                    android:textColor="@color/color_black"
                     android:textSize="16sp" />
             </RelativeLayout>
 
