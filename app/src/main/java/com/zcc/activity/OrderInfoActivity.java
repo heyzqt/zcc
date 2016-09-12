@@ -71,7 +71,7 @@ public class OrderInfoActivity extends AppCompatActivity implements View.OnClick
             Tv_count.setText("x"+order.getCount());
             Tv_price.setText("￥ "+order.getPrice());
             double sum=Double.parseDouble(order.getPrice())*Double.parseDouble(order.getCount());
-            Tv_SumPrice.setText("￥ "+sum);
+            Tv_SumPrice.setText("￥ "+new java.text.DecimalFormat("#.00").format(sum));
             TvTime.setText(order.getCreateTime());
         } catch (DbException e) {
             e.printStackTrace();

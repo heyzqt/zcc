@@ -265,7 +265,6 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                 if (mIsChecked) {
                     mImgChooseAll.setImageResource(R.mipmap.check_circle);
                     mIsChecked = false;
-
                     //保存订单数据 删除数据库购物车列表
                     try {
                         DBHelper.getInstance(mContext).saveAll(orderLists);

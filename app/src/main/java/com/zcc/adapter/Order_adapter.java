@@ -70,7 +70,7 @@ public class Order_adapter extends BaseAdapter {
         }
         holder.title.setText(business.getName());
         double sum=Double.parseDouble(business.getPrice())*Double.parseDouble(businessList.get(position).getCount());
-        holder.price.setText("共"+businessList.get(position).getCount()+"件商品\t\t实付款："+"￥ " +sum+"0");
+        holder.price.setText("共"+businessList.get(position).getCount()+"件商品\t\t实付款："+"￥ " +new java.text.DecimalFormat("#.00").format(sum));
         holder.img.setImageResource(Utils.getInstance(mContext).getImgResource(business.getImgUrl()));
         return convertView;
     }

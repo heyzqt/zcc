@@ -63,7 +63,7 @@ public class SplashActivity extends Activity {
         if (cc == 0)
             handler.postDelayed(ru, LENG);// 跳入引导界面
         if (count != 1)
-            handler.postDelayed(rr, LENG);// 跳入主界面
+            handler.postDelayed(rr, 300);// 跳入主界面
 
     }
 
