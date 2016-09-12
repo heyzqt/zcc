@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">种草草</string>
-    <string name="ip_address">http://172.17.190.1:82/zcc/index.php/</string>
+    <string name="ip_address">http://192.168.253.1:82/zcc/index.php/</string>
 
     <string name="Main_rl1">服装城</string>
     <string name="Main_rl2">美妆护肤</string>
