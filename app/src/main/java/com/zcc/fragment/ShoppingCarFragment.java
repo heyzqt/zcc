@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
 import com.zcc.ZccApplication;
 import com.zcc.activity.LoginActivity;
@@ -107,10 +109,23 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
         } else {
             mImgChooseAll.setImageResource(R.mipmap.check_circle);
         }
+        mImgChooseAll.setOnClickListener(this);
+        mBtnAccount.setOnClickListener(this);
+        mShoppingCarLv.setOnItemClickListener(this);
+        mShoppingCarLv.setOnItemLongClickListener(this);
+    }
 
+    @Override
+    public void onStart() {
+        Log.e("SHoppingCar----","onStart()");
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
         //初始化数据
         try {
-            mShoppingLists = DBHelper.getInstance(getActivity()).findAll(ShoppingCar.class);
+            mShoppingLists = DBHelper.getInstance(getActivity()).findAll(Selector.from(ShoppingCar.class).where("userId", "=", ZccApplication.mUserId + ""));
             mRecordLists = new ArrayList<>();
             if (mShoppingLists.size() != 0) {
                 String check;
@@ -129,11 +144,9 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
         } catch (DbException e) {
             e.printStackTrace();
         }
+        Log.e("SHoppingCar----","onResume()");
+        super.onResume();
 
-        mImgChooseAll.setOnClickListener(this);
-        mBtnAccount.setOnClickListener(this);
-        mShoppingCarLv.setOnItemClickListener(this);
-        mShoppingCarLv.setOnItemLongClickListener(this);
     }
 
     @Override

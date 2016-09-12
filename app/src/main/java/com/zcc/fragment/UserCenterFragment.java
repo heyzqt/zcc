@@ -98,11 +98,14 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
             //从数据库找出对象
             try {
                 User user = DBHelper.getInstance(getActivity()).findFirst(Selector.from(User.class).where("id", "=", ZccApplication.mUserId));
-                mUserHeadView.setImageResource(Utils.getInstance(getActivity()).getImgResource(user.getImgUrl()));
+                mUserHeadView.setImageResource(R.mipmap.touxiang);
                 mUsernameTv.setText(user.getName());
             } catch (DbException e) {
                 e.printStackTrace();
             }
+        }else{
+            mUserHeadView.setImageResource(R.mipmap.aliuser_place_holder);
+            mUsernameTv.setText("请登录");
         }
         super.onResume();
     }

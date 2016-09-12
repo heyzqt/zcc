@@ -169,7 +169,7 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                 //加入购物车添加对象购物车
                 break;
             case R.id.businessInfo_collect:
-                if (tv_soucang.getText().toString().equals("添加收藏"))
+                if (tv_soucang.getText().toString().equals("添加收藏")) {
                     //加入收藏添加收藏对象
                     if (!ZccApplication.mUserId.equals("-1")) {
                         Collect collect = new Collect();
@@ -192,7 +192,8 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                             e.printStackTrace();
                         }
                     }
-                    //用户未登录
+                }
+                //用户未登录
                 else {
                     Toast.makeText(this, "请先登录", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(this, LoginActivity.class));
