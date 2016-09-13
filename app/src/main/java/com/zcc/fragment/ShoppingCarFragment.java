@@ -22,6 +22,7 @@ import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
 import com.zcc.ZccApplication;
 import com.zcc.activity.LoginActivity;
+import com.zcc.activity.OrderManageActivity;
 import com.zcc.activity.R;
 import com.zcc.adapter.ShoppingCarAdapter;
 import com.zcc.dbutils.DBHelper;
@@ -244,6 +245,7 @@ public class ShoppingCarFragment extends Fragment implements View.OnClickListene
                 }
 
                 Toast.makeText(mContext, "结算成功!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), OrderManageActivity.class));
 
                 //加入订单列表
                 List<Order> orderLists = new ArrayList<Order>();

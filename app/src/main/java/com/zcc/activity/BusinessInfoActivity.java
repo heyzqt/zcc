@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * Created by heyzqt on 2016/9/6.
- * <p/>
+ * <p>
  * 商品详情页面
  */
 public class BusinessInfoActivity extends AppCompatActivity implements View.OnClickListener {
@@ -169,9 +169,10 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                 //加入购物车添加对象购物车
                 break;
             case R.id.businessInfo_collect:
-                if (tv_soucang.getText().toString().equals("添加收藏")) {
-                    //加入收藏添加收藏对象
-                    if (!ZccApplication.mUserId.equals("-1")) {
+                if (!ZccApplication.mUserId.equals("-1")) {
+                    if (tv_soucang.getText().toString().equals("添加收藏")) {
+                        //加入收藏添加收藏对象
+                        //   if (!ZccApplication.mUserId.equals("-1")) {
                         Collect collect = new Collect();
                         collect.setBusinessId(businessId);
                         collect.setCollect_time((now.get(Calendar.MONTH) + 1) + "-" + now.get(Calendar.DAY_OF_MONTH));
@@ -183,23 +184,7 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                         } catch (DbException e) {
                             e.printStackTrace();
                         }
-                    }
-                }else {
-                        //用户未登录
-                            Toast.makeText(this, "请先登录", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(this, LoginActivity.class));
-                        }
-                        break;
-                        case R.id.icon_add:
-                            int couns = Integer.parseInt(EdCount.getText().toString()) + 1;
-                            EdCount.setText(couns + "");
-                            break;
-                        case R.id.icon_reduce:
-                            int counss = Integer.parseInt(EdCount.getText().toString()) - 1;
-                            if (counss <= 0) {
-                                EdCount.setText("0");
-                            } else {
-                                EdCount.setText(counss + "");
+                    } else {
                         WhereBuilder wb = WhereBuilder.b("businessId", "=", businessId);
                         try {
                             DBHelper.getInstance(this).delete(Collect.class, wb);
@@ -208,6 +193,23 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                             e.printStackTrace();
                         }
                     }
+                } else {
+                    //用户未登录
+                    Toast.makeText(this, "请先登录", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(this, LoginActivity.class));
+                }
+                break;
+            case R.id.icon_add:
+                int couns = Integer.parseInt(EdCount.getText().toString()) + 1;
+                EdCount.setText(couns + "");
+                break;
+            case R.id.icon_reduce:
+                int counss = Integer.parseInt(EdCount.getText().toString()) - 1;
+                if (counss <= 0) {
+                    EdCount.setText("0");
+                } else {
+                    EdCount.setText(counss + "");
+                }
                 break;
         }
     }
