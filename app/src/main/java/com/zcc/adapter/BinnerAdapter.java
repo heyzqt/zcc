@@ -64,7 +64,6 @@ public class BinnerAdapter extends PagerAdapter {
             @Override
             public void onClick(View v) {
                 // 处理点击图片事件
-                Toast.makeText(context, adList.get(position % imageViews.size()).getTopic().toString(), Toast.LENGTH_LONG).show();
                 String id = adList.get(position % imageViews.size()).getId().toString();
                 Intent intent = new Intent();
                 intent.putExtra("businessId", id + "");

@@ -10,8 +10,10 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.db.sqlite.WhereBuilder;
 import com.lidroid.xutils.exception.DbException;
+import com.zcc.ZccApplication;
 import com.zcc.adapter.CollectAdapter;
 import com.zcc.dbutils.DBHelper;
 import com.zcc.entity.Collect;
@@ -62,7 +64,8 @@ public class CollectManageActivity extends AppCompatActivity implements AdapterV
         lv = (ListView) findViewById(R.id.collect_list);
         try {
             // CollectList=DBHelper.getInstance(getApplicationContext()).findAll(userInfo.class);
-            CollectList = DBHelper.getInstance(getApplicationContext()).findAll(Collect.class);
+            CollectList = DBHelper.getInstance(getApplicationContext()).findAll(Selector.from(Collect.class)
+                    .where("userId","=", ZccApplication.mUserId+""));
         } catch (DbException e) {
             e.printStackTrace();
         }

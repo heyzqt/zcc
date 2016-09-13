@@ -183,7 +183,23 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                         } catch (DbException e) {
                             e.printStackTrace();
                         }
-                    } else {
+                    }
+                }else {
+                        //用户未登录
+                            Toast.makeText(this, "请先登录", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(this, LoginActivity.class));
+                        }
+                        break;
+                        case R.id.icon_add:
+                            int couns = Integer.parseInt(EdCount.getText().toString()) + 1;
+                            EdCount.setText(couns + "");
+                            break;
+                        case R.id.icon_reduce:
+                            int counss = Integer.parseInt(EdCount.getText().toString()) - 1;
+                            if (counss <= 0) {
+                                EdCount.setText("0");
+                            } else {
+                                EdCount.setText(counss + "");
                         WhereBuilder wb = WhereBuilder.b("businessId", "=", businessId);
                         try {
                             DBHelper.getInstance(this).delete(Collect.class, wb);
@@ -192,24 +208,6 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                             e.printStackTrace();
                         }
                     }
-                }
-                //用户未登录
-                else {
-                    Toast.makeText(this, "请先登录", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(this, LoginActivity.class));
-                }
-                break;
-            case R.id.icon_add:
-                int couns = Integer.parseInt(EdCount.getText().toString()) + 1;
-                EdCount.setText(couns + "");
-                break;
-            case R.id.icon_reduce:
-                int counss = Integer.parseInt(EdCount.getText().toString()) - 1;
-                if (counss <= 0) {
-                    EdCount.setText("0");
-                } else {
-                    EdCount.setText(counss + "");
-                }
                 break;
         }
     }

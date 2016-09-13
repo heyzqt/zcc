@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
+import com.zcc.ZccApplication;
 import com.zcc.activity.R;
 import com.zcc.dbutils.DBHelper;
 import com.zcc.entity.Address;
@@ -67,7 +68,7 @@ public class AddressAdapter extends BaseAdapter {
         //找到User
         Address address = mDatas.get(position);
         try {
-            User user = DBHelper.getInstance(mContext).findFirst(Selector.from(User.class).where("id", "=", address.getUserId()));
+            User user = DBHelper.getInstance(mContext).findFirst(Selector.from(User.class).where("id", "=", ZccApplication.mUserId));
             vh.mTvName.setText(user.getName());
             vh.mTvAddress.setText(address.getAddress());
             vh.mTvPhone.setText(user.getPhone());

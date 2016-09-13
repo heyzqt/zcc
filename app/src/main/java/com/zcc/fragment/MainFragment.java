@@ -35,7 +35,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by heyzqt on 2016/9/6.
+ * Created by zyq on 2016/9/6.
  * <p/>
  * MainFragment
  */
@@ -95,7 +95,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         dots.add(dot2);
         tv_topic = (TextView) v.findViewById(R.id.binner_tv_topic);
         try {
-            mListBusiness = DBHelper.getInstance(getActivity()).findAll(Selector.from(Business.class).where("id", "<", "10"));
+            mListBusiness = DBHelper.getInstance(getActivity()).findAll(Selector.from(Business.class).where("id", ">", "20"));
         } catch (DbException e) {
             e.printStackTrace();
         }
@@ -221,7 +221,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
      */
     public List<AdDomain> getBannerAd() {
         List<AdDomain> adList = new ArrayList<AdDomain>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 5; i < 8; i++) {
             AdDomain adDomain = new AdDomain();
             adDomain.setTopic(mListBusiness.get(i).getName());
             adDomain.setImgUrl(getResource(mListBusiness.get(i).getImgUrl()));

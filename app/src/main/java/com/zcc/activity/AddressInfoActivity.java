@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
+import com.zcc.ZccApplication;
 import com.zcc.dbutils.DBHelper;
 import com.zcc.entity.Address;
 import com.zcc.entity.User;
@@ -60,7 +61,7 @@ public class AddressInfoActivity extends AppCompatActivity implements View.OnCli
             //找到地址对象
             mAddress = DBHelper.getInstance(this).findFirst(Selector.from(Address.class).where("id", "=", mAddressId));
             //找到用户对象
-            user = DBHelper.getInstance(this).findFirst(Selector.from(User.class).where("id", "=", mAddress.getUserId()));
+            user = DBHelper.getInstance(this).findFirst(Selector.from(User.class).where("id", "=",ZccApplication.mUserId+""));
         } catch (DbException e) {
             e.printStackTrace();
         }

@@ -10,8 +10,10 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.db.sqlite.WhereBuilder;
 import com.lidroid.xutils.exception.DbException;
+import com.zcc.ZccApplication;
 import com.zcc.adapter.OrderAdapter;
 import com.zcc.dbutils.DBHelper;
 import com.zcc.entity.Order;
@@ -62,7 +64,8 @@ public class OrderManageActivity extends AppCompatActivity implements AdapterVie
     private void initdata() {
         lv = (ListView) findViewById(R.id.order_list);
         try {
-            CollectList = DBHelper.getInstance(getApplicationContext()).findAll(Order.class);
+            CollectList = DBHelper.getInstance(getApplicationContext()).findAll(Selector.from(Order.class)
+                    .where("userId","=", ZccApplication.mUserId+""));
         } catch (DbException e) {
             e.printStackTrace();
         }

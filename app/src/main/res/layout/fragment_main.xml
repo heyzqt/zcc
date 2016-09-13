@@ -67,7 +67,7 @@
                         android:layout_alignParentBottom="true"
                         android:textSize="12dp"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/Main_rl1" />
+                        android:text="@string/Main_rl2" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -89,7 +89,7 @@
                         android:layout_alignParentBottom="true"
                         android:textSize="12dp"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/Main_rl2" />
+                        android:text="@string/Main_rl3" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -111,7 +111,7 @@
                         android:layout_alignParentBottom="true"
                         android:textSize="12dp"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/Main_rl3" />
+                        android:text="@string/Main_rl5" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -165,7 +165,7 @@
                         android:layout_alignParentBottom="true"
                         android:textSize="12dp"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/Main_rl5" />
+                        android:text="@string/Main_rl6" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -187,7 +187,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
                         android:textSize="12dp"
-                        android:text="@string/Main_rl6" />
+                        android:text="@string/Main_rl1" />
                 </RelativeLayout>
             </LinearLayout>
 
