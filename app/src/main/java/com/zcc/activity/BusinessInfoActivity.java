@@ -121,8 +121,13 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                     order.setCreateTime((now.get(Calendar.YEAR)) + "-" + (now.get(Calendar.MONTH) + 1) + "-" + now.get(Calendar.DAY_OF_MONTH));
                     order.setAddress("西华大学");
                     try {
-                        DBHelper.getInstance(getApplicationContext()).save(order);
-                        Toast.makeText(getApplicationContext(), "购买成功!", Toast.LENGTH_LONG).show();
+                        int countt=Integer.parseInt(EdCount.getText().toString());
+                        if(countt<=0){
+                            Toast.makeText(getApplicationContext(), "购买失败!数量不能小于0", Toast.LENGTH_LONG).show();
+                        }else {
+                            DBHelper.getInstance(getApplicationContext()).save(order);
+                            Toast.makeText(getApplicationContext(), "购买成功!", Toast.LENGTH_LONG).show();
+                        }
                     } catch (DbException e) {
                         e.printStackTrace();
                     }
@@ -157,8 +162,13 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                         shoppingCar.setPrice(business.getPrice());
                     }
                     try {
-                        DBHelper.getInstance(getApplicationContext()).saveOrUpdate(shoppingCar);
-                        Toast.makeText(getApplicationContext(), "加入购物车成功!", Toast.LENGTH_LONG).show();
+                        int countt=Integer.parseInt(EdCount.getText().toString());
+                        if(countt<=0){
+                            Toast.makeText(getApplicationContext(), "加入购物车失败!数量不能小于0", Toast.LENGTH_LONG).show();
+                        }else {
+                            DBHelper.getInstance(getApplicationContext()).saveOrUpdate(shoppingCar);
+                            Toast.makeText(getApplicationContext(), "加入购物车成功!", Toast.LENGTH_LONG).show();
+                        }
                     } catch (DbException e) {
                         e.printStackTrace();
                     }
@@ -206,7 +216,7 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
             case R.id.icon_reduce:
                 int counss = Integer.parseInt(EdCount.getText().toString()) - 1;
                 if (counss <= 0) {
-                    EdCount.setText("0");
+                    EdCount.setText("1");
                 } else {
                     EdCount.setText(counss + "");
                 }
