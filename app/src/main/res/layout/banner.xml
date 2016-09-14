@@ -37,7 +37,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="5dp"
                 android:layout_alignParentLeft="true"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/color_white"
                 android:text="第一张图现金付款放附近的放飞机分类的方法" />
 

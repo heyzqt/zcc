@@ -87,7 +87,7 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
         business = new Business();
         try {
             CollectList = DBHelper.getInstance(getApplicationContext()).findAll(Selector.from(Collect.class)
-                    .where("businessId", "=", businessId));
+                    .where("businessId", "=", businessId).and("userId","=",ZccApplication.mUserId));
 
             business = DBHelper.getInstance(getApplicationContext()).findFirst(Selector.from(Business.class).where("id", "=", businessId));
             b_name.setText(business.getName());
@@ -182,7 +182,6 @@ public class BusinessInfoActivity extends AppCompatActivity implements View.OnCl
                 if (!ZccApplication.mUserId.equals("-1")) {
                     if (tv_soucang.getText().toString().equals("添加收藏")) {
                         //加入收藏添加收藏对象
-                        //   if (!ZccApplication.mUserId.equals("-1")) {
                         Collect collect = new Collect();
                         collect.setBusinessId(businessId);
                         collect.setCollect_time((now.get(Calendar.MONTH) + 1) + "-" + now.get(Calendar.DAY_OF_MONTH));

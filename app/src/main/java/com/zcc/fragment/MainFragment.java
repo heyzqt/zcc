@@ -145,7 +145,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private void startAd() {
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         // 当Activity显示出来后，每五秒切换一次图片显示
-        scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(), 1, 5,
+        scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(), 1, 3,
                 TimeUnit.SECONDS);
     }
 
@@ -210,7 +210,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             tv_topic.setText(adDomain.getTopic());//设置TextView数据
             dots.get(oldPosition).setBackgroundResource(R.drawable.dot_normal);
             dots.get(position % 3).setBackgroundResource(R.drawable.dot_focused);
-            oldPosition = position % 3;
+            oldPosition = position% 3;
         }
     }
 
@@ -221,7 +221,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
      */
     public List<AdDomain> getBannerAd() {
         List<AdDomain> adList = new ArrayList<AdDomain>();
-        for (int i = 5; i < 8; i++) {
+        for (int i = 4; i <7; i++) {
             AdDomain adDomain = new AdDomain();
             adDomain.setTopic(mListBusiness.get(i).getName());
             adDomain.setImgUrl(getResource(mListBusiness.get(i).getImgUrl()));
